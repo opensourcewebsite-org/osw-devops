@@ -1,0 +1,12 @@
+{% set map = {
+    'Debian': {
+        'pkg': 'auditd',
+        'service': 'auditd',
+        'config': '/etc/audit/rules.d/cis.rules',
+        'config_source': 'salt://auditd/files/cis.rules',
+        'systemd_unit': '/etc/systemd/system/auditd.service',
+        'systemd_unit_source': 'salt://auditd/files/auditd.service',
+    },
+} %}
+
+{% set auditd = map.get(grains.os_family) %}

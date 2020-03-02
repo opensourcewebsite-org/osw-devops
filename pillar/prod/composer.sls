@@ -1,0 +1,2 @@
+composerusers:
+  - opensourcewebsite.org

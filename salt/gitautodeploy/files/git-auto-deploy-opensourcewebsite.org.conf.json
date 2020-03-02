@@ -1,0 +1,17 @@
+{
+  "log-file": "/www/opensourcewebsite.org/logs/git-auto-deploy.log",
+  "http-host": "0.0.0.0",
+  "http-port": 8005,
+  "pid-file": "/www/opensourcewebsite.org/tmp/.gitautodeploy.pid",
+
+  "repositories": [{
+    "url": "git@github.com:opensourcewebsite-org/opensourcewebsite-org.git",
+    "branch": "master",
+    "remote": "origin",
+    "path": "/www/opensourcewebsite.org/htdocs/",
+    "deploy": "/www/opensourcewebsite.org/deploy.sh",
+    "filters": [{
+      "ref": "refs/heads/master"
+    }]
+  }]
+}
