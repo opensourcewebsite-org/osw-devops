@@ -45,7 +45,7 @@ openjdk-r-ppa-ubuntu-bionic-pkgrepo:
 
 saltstack-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main
+    - name: deb http://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest bionic main
     - file: /etc/apt/sources.list.d/saltstack-ubuntu-bionic.list
 
 # https://wiki.ubuntu.com/Mirrors
