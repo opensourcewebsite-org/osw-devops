@@ -1,12 +1,12 @@
-certbot-ubuntu-xenial-pkgrepo:
+certbot-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/certbot/certbot/ubuntu xenial main
-    - file: /etc/apt/sources.list.d/certbot-ubuntu-xenial.list
+    - name: deb http://ppa.launchpad.net/certbot/certbot/ubuntu bionic main
+    - file: /etc/apt/sources.list.d/certbot-ubuntu-bionic.list
 
-deadsnakes-ubuntu-xenial-pkgrepo:
+deadsnakes-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu xenial main
-    - file: /etc/apt/sources.list.d/deadsnakes-ubuntu-xenial.list
+    - name: deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu bionic main
+    - file: /etc/apt/sources.list.d/deadsnakes-ubuntu-bionic.list
 
 digitalocean-pkgrepo:
   pkgrepo.managed:
@@ -18,43 +18,43 @@ digitalocean-agent-pkgrepo:
     - name: deb https://repos.insights.digitalocean.com/apt/do-agent main main
     - file: /etc/apt/sources.list.d/digitalocean-agent.list
 
-gitlab-runner-ubuntu-xenial-pkgrepo:
+gitlab-runner-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ xenial main
-    - file: /etc/apt/sources.list.d/gitlab-runner-ubuntu-xenial.list
+    - name: deb https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ bionic main
+    - file: /etc/apt/sources.list.d/gitlab-runner-ubuntu-bionic.list
 
-nginx-stable-ubuntu-xenial-pkgrepo:
+nginx-stable-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/nginx/stable/ubuntu xenial main
-    - file: /etc/apt/sources.list.d/nginx-stable-ubuntu-xenial.list
+    - name: deb http://ppa.launchpad.net/nginx/stable/ubuntu bionic main
+    - file: /etc/apt/sources.list.d/nginx-stable-ubuntu-bionic.list
 
-olipo186-git-auto-deploy-ubuntu-xenial-pkgrepo:
+olipo186-git-auto-deploy-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/olipo186/git-auto-deploy/ubuntu xenial main
-    - file: /etc/apt/sources.list.d/olipo186-git-auto-deploy-ubuntu-xenial.list
+    - name: deb http://ppa.launchpad.net/olipo186/git-auto-deploy/ubuntu bionic main
+    - file: /etc/apt/sources.list.d/olipo186-git-auto-deploy-ubuntu-bionic.list
 
-ondrej-php-ubuntu-xenial-pkgrepo:
+ondrej-php-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main
-    - file: /etc/apt/sources.list.d/ondrej-php-ubuntu-xenial.list
+    - name: deb http://ppa.launchpad.net/ondrej/php/ubuntu bionic main
+    - file: /etc/apt/sources.list.d/ondrej-php-ubuntu-bionic.list
 
-openjdk-r-ppa-ubuntu-xenial-pkgrepo:
+openjdk-r-ppa-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu xenial main
-    - file: /etc/apt/sources.list.d/openjdk-r-ppa-ubuntu-xenial.list
+    - name: deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu bionic main
+    - file: /etc/apt/sources.list.d/openjdk-r-ppa-ubuntu-bionic.list
 
-saltstack-ubuntu-xenial-pkgrepo:
+saltstack-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://repo.saltstack.com/py3/ubuntu/16.04/amd64/latest xenial main
-    - file: /etc/apt/sources.list.d/saltstack-ubuntu-xenial.list
+    - name: deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main
+    - file: /etc/apt/sources.list.d/saltstack-ubuntu-bionic.list
 
 # https://wiki.ubuntu.com/Mirrors
-sg-ubuntu-xenial-pkgrepo:
+sg-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://sg.archive.ubuntu.com/ubuntu xenial main
-    - file: /etc/apt/sources.list.d/sg-ubuntu-xenial.list
+    - name: deb http://sg.archive.ubuntu.com/ubuntu bionic main
+    - file: /etc/apt/sources.list.d/sg-ubuntu-bionic.list
 
-zabbix-ubuntu-xenial-pkgrepo:
+zabbix-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://repo.zabbix.com/zabbix/4.2/ubuntu xenial main
-    - file: /etc/apt/sources.list.d/zabbix-ubuntu-xenial.list
+    - name: deb http://repo.zabbix.com/zabbix/4.2/ubuntu bionic main
+    - file: /etc/apt/sources.list.d/zabbix-ubuntu-bionic.list
