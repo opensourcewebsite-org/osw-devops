@@ -4,13 +4,13 @@ salt:
   master_remove_config: False
   install_packages: True
   py_ver: 'py3'
-  version: 3000+ds-1
+  version: 3000.1+ds-1
   lookup:
     salt_minion: 'salt-minion'
-  release: '3000'
+  release: '3000.1'
   minion:
     master: opensourcewebsite.org
-    schedule:
-      - highstate:
-        - function: state.apply
-        - minutes: 100000
+#    schedule:
+#      - highstate:
+#        - function: state.apply
+#        - minutes: 100000
