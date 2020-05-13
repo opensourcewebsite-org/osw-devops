@@ -13,7 +13,7 @@ nginx-stable-ubuntu-bionic-pkgrepo:
 olipo186-git-auto-deploy-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
     - ppa: olipo186/git-auto-deploy
-    
+
 ondrej-php-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
     - ppa: ondrej/php
@@ -37,3 +37,4 @@ zabbix-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
     - name: deb http://repo.zabbix.com/zabbix/4.2/ubuntu bionic main
     - file: /etc/apt/sources.list.d/zabbix-ubuntu-bionic.list
+    - key_url: http://repo.zabbix.com/zabbix-official-repo.key
