@@ -17,7 +17,7 @@ packages:
     #  - iftop
     #  - sudo
       - tmux
-      - python-pip
+      - python2.7-pip
       - chrony
     #  - update-notifier-common
     #  - unattended-upgrades
