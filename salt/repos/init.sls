@@ -24,14 +24,19 @@ openjdk-r-ppa-ubuntu-bionic-pkgrepo:
 
 saltstack-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest bionic main
-    - file: /etc/apt/sources.list.d/saltstack-ubuntu-bionic.list
+    - humanname:  SaltStack Package Repository
+    - name:       deb http://repo.saltstack.com/apt/ubuntu/ubuntu{{ grains['osrelease_info'][0] }}/latest {{ grains['oscodename'] }} main
+    - dist:       {{ grains['oscodename'] }}
+    - file:       /etc/apt/sources.list.d/saltstack.list
+    - gpgcheck:   1
+    - key_url:    https://repo.saltstack.com/apt/ubuntu/ubuntu{{ grains['osrelease_info'][0] }}/latest/SALTSTACK-GPG-KEY.pub
+    - clean_file: true
 
 # https://wiki.ubuntu.com/Mirrors
-sg-ubuntu-bionic-pkgrepo:
-  pkgrepo.managed:
-    - name: deb http://sg.archive.ubuntu.com/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/sg-ubuntu-bionic.list
+#sg-ubuntu-bionic-pkgrepo:
+#  pkgrepo.managed:
+#    - name: deb http://sg.archive.ubuntu.com/ubuntu bionic main
+#    - file: /etc/apt/sources.list.d/sg-ubuntu-bionic.list
 
 #zabbix-ubuntu-bionic-pkgrepo:
 #  pkgrepo.managed:
