@@ -33,9 +33,9 @@ sg-ubuntu-bionic-pkgrepo:
     - name: deb http://sg.archive.ubuntu.com/ubuntu bionic main
     - file: /etc/apt/sources.list.d/sg-ubuntu-bionic.list
 
-zabbix-ubuntu-bionic-pkgrepo:
-  pkgrepo.managed:
-    - name: deb http://repo.zabbix.com/zabbix/4.2/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/zabbix-ubuntu-bionic.list
-    - keyid: 082AB56BA14FE591
-    - keyserver: keyserver.ubuntu.com
+#zabbix-ubuntu-bionic-pkgrepo:
+#  pkgrepo.managed:
+#    - name: deb http://repo.zabbix.com/zabbix/4.2/ubuntu bionic main
+#    - file: /etc/apt/sources.list.d/zabbix-ubuntu-bionic.list
+#    - keyid: 082AB56BA14FE591
+#    - keyserver: keyserver.ubuntu.com
