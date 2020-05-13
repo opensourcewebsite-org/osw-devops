@@ -6,30 +6,21 @@ deadsnakes-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
     - ppa: deadsnakes/ppa
 
-gitlab-runner-ubuntu-bionic-pkgrepo:
-  pkgrepo.managed:
-    - name: deb https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ bionic main
-    - file: /etc/apt/sources.list.d/gitlab-runner-ubuntu-bionic.list
-
 nginx-stable-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/nginx/stable/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/nginx-stable-ubuntu-bionic.list
+    - ppa: nginx/stable
 
 olipo186-git-auto-deploy-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/olipo186/git-auto-deploy/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/olipo186-git-auto-deploy-ubuntu-bionic.list
-
+    - ppa: olipo186/git-auto-deploy
+    
 ondrej-php-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/ondrej/php/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/ondrej-php-ubuntu-bionic.list
+    - ppa: ondrej/php
 
 openjdk-r-ppa-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/openjdk-r-ppa-ubuntu-bionic.list
+    - ppa: openjdk-r/ppa
 
 saltstack-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
