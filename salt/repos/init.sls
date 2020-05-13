@@ -1,22 +1,10 @@
 certbot-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/certbot/certbot/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/certbot-ubuntu-bionic.list
+    - ppa: certbot/certbot
 
 deadsnakes-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/deadsnakes-ubuntu-bionic.list
-
-digitalocean-pkgrepo:
-  pkgrepo.managed:
-    - name: deb https://repos.sonar.digitalocean.com/apt main main
-    - file: /etc/apt/sources.list.d/digitalocean.list
-
-digitalocean-agent-pkgrepo:
-  pkgrepo.managed:
-    - name: deb https://repos.insights.digitalocean.com/apt/do-agent main main
-    - file: /etc/apt/sources.list.d/digitalocean-agent.list
+    - ppa: deadsnakes/ppa
 
 gitlab-runner-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
