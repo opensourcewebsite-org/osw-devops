@@ -22,15 +22,15 @@ openjdk-r-ppa-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
     - ppa: openjdk-r/ppa
 
-saltstack-ubuntu-bionic-pkgrepo:
-  pkgrepo.managed:
-    - humanname:  SaltStack Package Repository
-    - name:       deb http://repo.saltstack.com/apt/ubuntu/ubuntu{{ grains['osrelease_info'][0] }}/latest {{ grains['oscodename'] }} main
-    - dist:       {{ grains['oscodename'] }}
-    - file:       /etc/apt/sources.list.d/saltstack.list
-    - gpgcheck:   1
-    - key_url:    https://repo.saltstack.com/apt/ubuntu/ubuntu{{ grains['osrelease_info'][0] }}/latest/SALTSTACK-GPG-KEY.pub
-    - clean_file: true
+#saltstack-ubuntu-bionic-pkgrepo:
+#  pkgrepo.managed:
+#    - humanname:  SaltStack Package Repository
+#    - name:       deb http://repo.saltstack.com/apt/ubuntu/ubuntu{{ grains['osrelease_info'][0] }}/latest {{ grains['oscodename'] }} main
+#    - dist:       {{ grains['oscodename'] }}
+#    - file:       /etc/apt/sources.list.d/saltstack.list
+#    - gpgcheck:   1
+#    - key_url:    https://repo.saltstack.com/apt/ubuntu/ubuntu{{ grains['osrelease_info'][0] }}/latest/SALTSTACK-GPG-KEY.pub
+#    - clean_file: true
 
 # https://wiki.ubuntu.com/Mirrors
 #sg-ubuntu-bionic-pkgrepo:

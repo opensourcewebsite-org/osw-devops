@@ -1,6 +1,6 @@
 nginx:
-#  pkg:
-#  - installed
+  pkg:
+  - installed
 #  service:
 #  - running
 #  - reload: True
