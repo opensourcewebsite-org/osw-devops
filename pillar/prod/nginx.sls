@@ -90,7 +90,7 @@ nginx:
           - /etc/nginx/mime.types
           - /etc/nginx/conf.d/*.conf
           - /etc/nginx/sites-enabled/*
-          - cloudflare
+
 
   servers:
     managed:
@@ -198,9 +198,9 @@ nginx:
             - index:
               - index.php
             - ssl_certificate:
-              - /etc/letsencrypt/live/opensourcewebsite.org/fullchain.pem
+              - /etc/ssl/certs/cert.pem
             - ssl_certificate_key:
-              - /etc/letsencrypt/live/opensourcewebsite.org/privkey.pem
+              - /etc/ssl/private/key.pem
             - ssl_stapling:
               - 'on'
             - ssl_stapling_verify:
