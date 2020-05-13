@@ -1,28 +1,29 @@
 packages:
   pkg.installed:
     - pkgs:
-      - openssh-server
-      - nmap
-      - tcpdump
-      - ioping
-      - ethtool
-      - hdparm
-      - lsof
-      - strace
-      - mc
-      - htop
-      - sysstat
-      - lshw
-      - iotop
-      - iftop
-      - sudo
+    #  - openssh-server
+    #  - nmap
+    #  - tcpdump
+    #  - ioping
+    #  - ethtool
+    #  - hdparm
+    #  - lsof
+    #  - strace
+    #  - mc
+    #  - htop
+    #  - sysstat
+    #  - lshw
+    #  - iotop
+    #  - iftop
+    #  - sudo
       - tmux
+      - python-pip
       - chrony
-      - update-notifier-common
-      - unattended-upgrades
-      - update-manager-core
+    #  - update-notifier-common
+    #  - unattended-upgrades
+      #- update-manager-core
       - software-properties-common
-      - python-apt
+      #- python-apt
       - python-pycurl
       - certbot
       - python-certbot-nginx
