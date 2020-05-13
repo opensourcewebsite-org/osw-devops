@@ -22,7 +22,6 @@ packages:
       - unattended-upgrades
       - update-manager-core
       - software-properties-common
-      - python-software-properties
       - python-apt
       - python-pycurl
       - certbot
