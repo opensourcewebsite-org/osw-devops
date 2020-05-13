@@ -32,7 +32,7 @@ base:
     - supervisord
     - composer
     - backup
-    - logrotate
-    - logrotate.jobs
+    #- logrotate
+    #- logrotate.jobs
     #- salt.master
     #- salt.formulas
