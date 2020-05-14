@@ -27,12 +27,12 @@ base:
     - php.cli
     - php.xml
 #    - phpmyadmin
-#    - mysqld
-#    - gitautodeploy
-  #  - supervisord
-  #  - composer
-  #  - backup
-    #- logrotate
-    #- logrotate.jobs
+    - mysqld
+    - gitautodeploy
+    - supervisord
+    - composer
+    - backup
+    - logrotate
+    - logrotate.jobs
     #- salt.master
     #- salt.formulas
