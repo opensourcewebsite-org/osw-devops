@@ -19,7 +19,7 @@ base:
     - php.fpm
     - php.zip
     - php.mbstring
-  #  - php.gd
+    - php.gd
   #  - php.imagick
   #  - php.intl
   #  - php.curl
