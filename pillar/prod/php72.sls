@@ -48,7 +48,7 @@ php:
         settings:
           global:
             pid: /run/php/php7.2-fpm.pid
-            error_log: /var/log/php/php7.2-fpm.log
+            error_log: /var/log/php7.2-fpm.log
 
     # settings for fpm-pools
     pools:
