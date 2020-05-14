@@ -90,7 +90,7 @@ nginx:
           - /etc/nginx/mime.types
           - /etc/nginx/conf.d/*.conf
           - /etc/nginx/sites-enabled/*
-          - cloudflare
+      #   - cloudflare
 
   servers:
     managed:
