@@ -20,7 +20,7 @@ base:
     - php.zip
     - php.mbstring
     - php.gd
-  #  - php.imagick
+    - php.imagick
   #  - php.intl
   #  - php.curl
   #  - php.mysql
