@@ -21,13 +21,13 @@ base:
     - php.mbstring
     - php.gd
     - php.imagick
-  #  - php.intl
-  #  - php.curl
-  #  - php.mysql
-  #  - php.cli
-  #  - php.xml
-  #  - phpmyadmin
-  #  - mysqld
+    - php.intl
+    - php.curl
+    - php.mysql
+    - php.cli
+    - php.xml
+    - phpmyadmin
+    - mysqld
   #  - gitautodeploy
   #  - supervisord
   #  - composer
