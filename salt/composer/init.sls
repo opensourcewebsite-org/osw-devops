@@ -1,15 +1,14 @@
 get-composer:
   cmd.run:
-    - name: 'CURL=`which curl`; $CURL -sS https://getcomposer.org/installer | php'
-    - unless: test -f /usr/local/bin/composer
+    - name: 'CURL=`which curl`; $CURL -sS https://getcomposer.org/installer -o composer-setup.php | php composer-setup.php --install-dir=/usr/local/bin --filename=composer'
     - cwd: /root/
 
-install-composer:
-  cmd.wait:
-    - name: mv /root/composer.phar /usr/local/bin/composer
-    - cwd: /root/
-    - watch:
-      - cmd: get-composer
+#install-composer:
+#  cmd.wait:
+#    - name: mv /root/composer.phar /usr/local/bin/composer
+#    - cwd: /root/
+#    - watch:
+#      - cmd: get-composer
 
 {% for user in pillar['composerusers'] %}
 init-composer-{{user}}:
@@ -22,7 +21,7 @@ init-composer-{{user}}:
       - COMPOSER_HOME: '/www/{{user}}/.config/composer'
     - unless: test -d /www/{{user}}/.config/composer
     - require:
-      - cmd: install-composer
+      - cmd: get-composer
 discard-changes-{{user}}:
   cmd.run:
     - name: 'composer config --global discard-changes true'
@@ -32,5 +31,5 @@ discard-changes-{{user}}:
     - env:
       - COMPOSER_HOME: '/www/{{user}}/.config/composer'
     - require:
-      - cmd: install-composer
+      - cmd: get-composer
 {% endfor %}
