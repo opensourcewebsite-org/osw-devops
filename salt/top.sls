@@ -14,10 +14,10 @@ base:
     - users.log_acl
     - update_motd_d
     - users.selected_editor
-#  'opensourcewebsite.org':
-#    - nginx
-#    - php.fpm
-#    - php.zip
+  'opensourcewebsite.org':
+    - nginx
+    - php.fpm
+    - php.zip
 #    - php.mbstring
 #    - php.gd
 #    - php.imagick
