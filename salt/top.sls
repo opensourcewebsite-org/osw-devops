@@ -23,10 +23,10 @@ base:
     - php.imagick
     - php.intl
     - php.curl
-    - php.mysql
-    - php.cli
-    - php.xml
-    - phpmyadmin
+#    - php.mysql
+#    - php.cli
+#    - php.xml
+  #  - phpmyadmin
   #  - mysqld
 #    - gitautodeploy
   #  - supervisord
