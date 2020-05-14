@@ -14,8 +14,8 @@ base:
     - users.log_acl
     - update_motd_d
     - users.selected_editor
-  'opensourcewebsite.org':
-    - nginx
+#  'opensourcewebsite.org':
+  #  - nginx
   #  - php.fpm
   #  - php.zip
   #  - php.mbstring
