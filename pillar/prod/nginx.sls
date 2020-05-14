@@ -110,9 +110,9 @@ nginx:
             - error_log:
               - /var/log/nginx/error.log
             - ssl_certificate:
-              - /etc/nginx/nginx.pem
+              - /etc/ssl/certs/nginx-selfsigned.crt
             - ssl_certificate_key:
-              - /etc/nginx/nginx.pem
+              - /etc/ssl/private/nginx-selfsigned.key
             - auth_basic:
               - "\u0022closed site\u0022"
             - auth_basic_user_file:
@@ -146,9 +146,9 @@ nginx:
             - auth_basic_user_file:
               - htpasswd
             - ssl_certificate:
-              - /etc/nginx/nginx.pem
+              - /etc/ssl/certs/nginx-selfsigned.crt
             - ssl_certificate_key:
-              - /etc/nginx/nginx.pem
+              - /etc/ssl/private/nginx-selfsigned.key
             - access_log:
               - 'off'
             - location ~ \.php$:
@@ -198,9 +198,9 @@ nginx:
             - index:
               - index.php
             - ssl_certificate:
-              - /etc/ssl/certs/cert.pem
+              - /etc/ssl/certs/nginx-selfsigned.crt
             - ssl_certificate_key:
-              - /etc/ssl/private/key.pem
+              - /etc/ssl/private/nginx-selfsigned.key
             - ssl_stapling:
               - 'on'
             - ssl_stapling_verify:
