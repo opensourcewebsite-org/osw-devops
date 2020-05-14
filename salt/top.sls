@@ -19,16 +19,16 @@ base:
     - php.fpm
     - php.zip
     - php.mbstring
-    - php.gd
-    - php.imagick
-    - php.intl
-    - php.curl
-    - php.mysql
-    - php.cli
-    - php.xml
-    - phpmyadmin
-    - mysqld
-    - gitautodeploy
+  #  - php.gd
+  #  - php.imagick
+  #  - php.intl
+  #  - php.curl
+  #  - php.mysql
+  #  - php.cli
+  #  - php.xml
+  #  - phpmyadmin
+  #  - mysqld
+  #  - gitautodeploy
   #  - supervisord
   #  - composer
   #  - backup
