@@ -28,8 +28,8 @@ base:
     - php.xml
     - phpmyadmin
     - mysqld
-  #  - gitautodeploy
-  #  - supervisord
+    - gitautodeploy
+    - supervisord
   #  - composer
   #  - backup
     #- logrotate
