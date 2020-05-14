@@ -15,7 +15,6 @@ base:
     - update_motd_d
     - users.selected_editor
   'opensourcewebsite.org':
-    - upd_pack
     - nginx
   #  - php.fpm
   #  - php.zip
