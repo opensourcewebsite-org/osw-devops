@@ -1,6 +1,6 @@
 get-composer:
   cmd.run:
-    - name: 'CURL=`which curl`; $CURL -sS https://getcomposer.org/installer -o composer-setup.php | php composer-setup.php --install-dir=/usr/local/bin --filename=composer'
+    - name: 'curl -sS https://getcomposer.org/installer -o composer-setup.php | php composer-setup.php --install-dir=/usr/local/bin --filename=composer'
     - cwd: /root/
 
 #install-composer:
