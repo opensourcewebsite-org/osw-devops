@@ -22,7 +22,7 @@ init-composer-{{user}}:
       - COMPOSER_HOME: '/www/{{user}}/.config/composer'
     - unless: test -d /www/{{user}}/.config/composer
     - require:
-      - cmd: get-composer
+      - cmd: install-composer
 discard-changes-{{user}}:
   cmd.run:
     - name: 'composer config --global discard-changes true'
@@ -32,5 +32,5 @@ discard-changes-{{user}}:
     - env:
       - COMPOSER_HOME: '/www/{{user}}/.config/composer'
     - require:
-      - cmd: get-composer
+      - cmd: install-composer
 {% endfor %}
