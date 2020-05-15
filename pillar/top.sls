@@ -4,7 +4,7 @@
 base:
   '*':
     - users.init
-    #- salt
+    - salt
   'opensourcewebsite.org':
     - prod.users
     - prod.php74
@@ -14,4 +14,4 @@ base:
     - prod.composer
     - prod.backup
     - prod.logrotate
-    #- prod.salt
+    - prod.salt
