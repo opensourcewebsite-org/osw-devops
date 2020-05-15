@@ -25,7 +25,29 @@
 #      - ssh-rsa SSHRSA
 
 users:
+  newuser:
+    password: #TODO
+    enforce_password: True
+    home: /home/newuser
+    homedir_owner: newuser
+    homedir_group: newuser
+    user_dir_mode: 700
+    manage_profile: False
+    createhome: True
+    expire: 4102444800
+    sudouser: True
+    sudo_rules:
+      - ALL=(ALL) NOPASSWD:ALL
+    sudo_defaults:
+      - 'requiretty,env_reset,timestamp_timeout=0'
+    shell: /bin/bash
+    prime_group:
+      name: newuser
+    ssh_auth:
+      - ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFWi44Jxbkk4fzPFkDtElsxHeJ2bLHg5/KnjV0+h5zH8VRC71bkW2kqsOfTbjI1yHfWPmPQMDHL6Aj7jeg1qsRrDgGYj3chGo7asXn1lo84eiNtpFrjfFNYYfY7AYiXkAxMiYmWbm4+WXwW31Rz+xI5E20VKbjKeI740o1i28Bq52qdJw== ecdsa-key-20200515
+
 # Put here new user
+
   grandmotivator:
     password: #TODO
     enforce_password: True
