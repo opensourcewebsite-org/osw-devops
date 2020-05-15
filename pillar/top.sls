@@ -13,5 +13,5 @@ base:
     - prod.supervisor
     - prod.composer
     - prod.backup
-    #- prod.logrotate
+    - prod.logrotate
     #- prod.salt
