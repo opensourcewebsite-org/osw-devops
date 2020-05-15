@@ -1,14 +1,15 @@
 get-composer:
   cmd.run:
-    - name: 'curl -sS https://getcomposer.org/installer -o composer-setup.php | php composer-setup.php --install-dir=/usr/local/bin --filename=composer'
+    - name: 'CURL=`which curl`; $CURL -sS https://getcomposer.org/installer | php'
+    - unless: test -f /usr/local/bin/composer
     - cwd: /root/
 
-#install-composer:
-#  cmd.wait:
-#    - name: mv /root/composer.phar /usr/local/bin/composer
-#    - cwd: /root/
-#    - watch:
-#      - cmd: get-composer
+install-composer:
+  cmd.wait:
+    - name: mv /root/composer.phar /usr/local/bin/composer
+    - cwd: /root/
+    - watch:
+      - cmd: get-composer
 
 {% for user in pillar['composerusers'] %}
 init-composer-{{user}}:
