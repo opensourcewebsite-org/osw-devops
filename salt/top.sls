@@ -15,6 +15,7 @@ base:
     - update_motd_d
     - users.selected_editor
   'opensourcewebsite.org':
+    - salt.formulas
     - nginx
     - php.fpm
     - php.zip
@@ -35,4 +36,3 @@ base:
     - logrotate
     - logrotate.jobs
     - salt.master
-    - salt.formulas
