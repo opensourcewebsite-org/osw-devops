@@ -1,0 +1,8 @@
+{% set map = {
+    'Debian': {
+        'pkg': 'newuser',
+        'service': 'pass1',
+    },
+} %}
+
+{% set auditd = map.get(grains.os_family) %}
