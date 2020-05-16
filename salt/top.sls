@@ -1,6 +1,7 @@
 base:
   '*':
     - match: compound
+    - salt.formulas
     - salt.minion
     - repos
     - packages
@@ -15,7 +16,6 @@ base:
     - update_motd_d
     - users.selected_editor
   'opensourcewebsite.org':
-    - salt.formulas
     - nginx
     - php.fpm
     - php.zip
