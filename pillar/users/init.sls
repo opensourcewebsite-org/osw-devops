@@ -58,7 +58,7 @@ users:
     user_dir_mode: 700
     manage_profile: False
     createhome: True
-    expire: 4102444800
+    expire: -1
     sudouser: True
     sudo_rules:
       - ALL=(ALL) NOPASSWD:ALL
