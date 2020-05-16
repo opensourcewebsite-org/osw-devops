@@ -20,7 +20,7 @@ salt:
       base:
         - /srv/pillar
     gitfs_remotes:
-      - git://github.com/saltstack-formulas/salt-formula.git:
+      - https://github.com/saltstack-formulas/salt-formula.git:
         - base: develop
       - https://github.com/Makc2032/osw3.git:
 #        - privkey: /root/.ssh/id_rsa
