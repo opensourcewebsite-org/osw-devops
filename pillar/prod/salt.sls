@@ -22,9 +22,9 @@ salt:
     gitfs_remotes:
       - git://github.com/saltstack-formulas/salt-formula.git:
         - base: develop
-      - git@github.com:Makc2032/opensourcewebsite-org/osw-devops.git:
-        - privkey: /root/.ssh/id_rsa
-        - pubkey: /root/.ssh/id_rsa.pub
+      - https://github.com/Makc2032/osw3.git:
+#        - privkey: /root/.ssh/id_rsa
+#        - pubkey: /root/.ssh/id_rsa.pub
         - root: salt
         - base: master
     top_file_merging_strategy: merge
@@ -36,12 +36,12 @@ salt:
     gitfs_update_interval: 80
     ext_pillar:
       - git:
-        - git@github.com:opensourcewebsite-org/osw-devops.git:
+        - https://github.com/Makc2032/osw3.git:
           - root: pillar
-          - privkey: /root/.ssh/id_rsa
-          - pubkey: /root/.ssh/id_rsa.pub
+#          - privkey: /root/.ssh/id_rsa
+#          - pubkey: /root/.ssh/id_rsa.pub
   minion:
-    master: opensourcewebsite.org
+    master: 127.0.0.1
 #    schedule:
 #      - highstate:
 #        - function: state.apply
