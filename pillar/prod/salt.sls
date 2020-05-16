@@ -22,6 +22,18 @@ salt:
     gitfs_remotes:
       - https://github.com/saltstack-formulas/salt-formula.git:
         - base: master
+      - https://github.com/saltstack-formulas/cron-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/nginx-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/php-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/supervisor-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/users-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/logrotate-formula.git:
+        - base: master
       - https://github.com/Makc2032/osw3.git:
 #        - privkey: /root/.ssh/id_rsa
 #        - pubkey: /root/.ssh/id_rsa.pub
