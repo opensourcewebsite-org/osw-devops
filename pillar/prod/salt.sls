@@ -22,7 +22,7 @@ salt:
     gitfs_remotes:
       - git://github.com/saltstack-formulas/salt-formula.git:
         - base: develop
-      - git@github.com:Makc2032/osw3.git:
+      - git@github.com:Makc2032/opensourcewebsite-org/osw-devops.git:
         - privkey: /root/.ssh/id_rsa
         - pubkey: /root/.ssh/id_rsa.pub
         - root: salt
@@ -36,7 +36,7 @@ salt:
     gitfs_update_interval: 80
     ext_pillar:
       - git:
-        - git@github.com:Makc2032/osw3.git:
+        - git@github.com:opensourcewebsite-org/osw-devops.git:
           - root: pillar
           - privkey: /root/.ssh/id_rsa
           - pubkey: /root/.ssh/id_rsa.pub
