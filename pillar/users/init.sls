@@ -1,4 +1,4 @@
-{% from "users/data.yml" import users with context %}
+{% from "users/users.yml" import users with context %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
