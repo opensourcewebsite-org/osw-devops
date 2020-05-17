@@ -24,10 +24,10 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{%- for namer, sshkey in pillar.get('usvers',[]).items() -%}
+{%- for namer in pillar.get('usvers').items() -%}
 users:
   {{ namer }}:
-    password: {{ sshkey }}
+    password: {{ namer }}
     enforce_password: True
     home: /home/{{ namer }}
     homedir_owner: {{ namer }}
@@ -45,7 +45,7 @@ users:
     prime_group:
       name: {{ namer }}
     ssh_auth:
-      - {{ sshkey }}
+      - {{ namer }}
 {% endfor %}
 # Put here new user
 
