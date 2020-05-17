@@ -28,7 +28,7 @@
 {% for usvername in nameusers.items() %}
 users:
   {{ usvername }}:
-    password: {{ passher }}
+    password: {{ usvername }}
     enforce_password: True
     home: /home/{{ usvername }}
     homedir_owner: {{ usvername }}
