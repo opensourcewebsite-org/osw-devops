@@ -24,7 +24,7 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{%- for namer in pillar.get('usvers',{}).items() -%}
+{%- for namer in pillar['usvers_list'].items() -%}
 users:
   {{ namer }}:
     password: {{ namer }}
@@ -46,7 +46,7 @@ users:
       name: {{ namer }}
     ssh_auth:
       - {{ namer }}
-{% endfor %}
+{%- endfor -%}
 # Put here new user
 
   grandmotivator:

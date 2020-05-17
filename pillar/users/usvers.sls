@@ -1,7 +1,7 @@
-usvers:
+usvers_list:
   Petrarka777:
     'Secretkey'
-  Ivanko111: 
+  Ivanko111:
     'Randimka1'
   Radion:
     'ParolkaRadionka'
