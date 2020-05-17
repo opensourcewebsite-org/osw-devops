@@ -1,6 +1,8 @@
 {% set map = {
     'Debian': {
-        'username': 'Petro1' 'Petro2' 'Ivan' 'Petro3',
+        {% for userper in ['moe','larry','curly'] %}
+        'username': {{ userper }},
+        {% endfor %}
         'password': 'PUT_PASSWORD_HERE',
     },
 } %}
