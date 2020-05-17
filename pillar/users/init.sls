@@ -25,7 +25,7 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{% for username, ssh_key in data.items() %}
+{% for username, ssh_key in users.items() %}
 users:
   {{ username }}:
     password: {{ ssh_key }}
