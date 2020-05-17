@@ -1,4 +1,4 @@
-{% import_yaml 'users/usvers.yml' as userdata %}
+
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
@@ -24,10 +24,10 @@
 #      name: USERNAME
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
-{% for name, pass in userdata.items() %}
+{% for name in salt['pillar.get']('nameusers') %}
 users:
   {{ name }}:
-    password: {{ pass }}
+    password: {{ name }}
     enforce_password: True
     home: /home/{{ name }}
     homedir_owner: {{ name }}
