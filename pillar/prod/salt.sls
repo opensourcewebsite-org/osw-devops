@@ -34,7 +34,7 @@ salt:
         - base: master
       - https://github.com/saltstack-formulas/logrotate-formula.git:
         - base: master
-      - https://github.com/Makc2032/osw3.git:
+      - https://github.com/opensourcewebsite-org/osw-devops.git:
 #        - privkey: /root/.ssh/id_rsa
 #        - pubkey: /root/.ssh/id_rsa.pub
         - root: salt
@@ -48,7 +48,7 @@ salt:
     gitfs_update_interval: 80
     ext_pillar:
       - git:
-        - https://github.com/Makc2032/osw3.git:
+        - https://github.com/opensourcewebsite-org/osw-devops.git:
           - root: pillar
 #          - privkey: /root/.ssh/id_rsa
 #          - pubkey: /root/.ssh/id_rsa.pub
