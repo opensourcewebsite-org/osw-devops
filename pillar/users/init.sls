@@ -25,10 +25,10 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{% for usvername in nameusers.items() %}
+{% for usvername, passher in nameusers.items() %}
 users:
   {{ usvername }}:
-    password: {{ usvername }}
+    password: {{ passher }}
     enforce_password: True
     home: /home/{{ usvername }}
     homedir_owner: {{ usvername }}
