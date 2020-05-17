@@ -25,7 +25,7 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{% for username, details in pillar.get('users', {}).items() %}
+{% for username in ['moe','larry','curly'] %}
 users:
   {{ username }}:
     password: {{ username }}
