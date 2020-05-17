@@ -23,7 +23,7 @@
 #      name: USERNAME
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
-{% for usvername in salt['pillar.get']('usvers') %}
+{% for usvername in pillar.get('usvers', {}).items() %}
 users:
   {{ usvername }}:
     password: {{ usvername }}
