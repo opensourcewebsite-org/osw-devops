@@ -1,7 +1,6 @@
 base:
   '*':
     - match: compound
-    - salt.minion
     - repos
     - packages
     - cron
@@ -36,3 +35,4 @@ base:
     - logrotate.jobs
     - salt.master
     - salt.formulas
+    - salt.minion
