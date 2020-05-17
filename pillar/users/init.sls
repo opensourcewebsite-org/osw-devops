@@ -25,14 +25,14 @@
 #      - ssh-rsa SSHRSA
 
 {% import_yaml 'users/usvers.yml' as nameusers %}
-{% for usvername, passher in nameusers.items() %}
+{% for usvername in nameusers.items() %}
 users:
-  {{ usvername }}:
-    password: {{ passher }}
+  {{ usvername.name }}:
+    password: {{ usvername.pass }}
     enforce_password: True
-    home: /home/{{ usvername }}
-    homedir_owner: {{ usvername }}
-    homedir_group: {{ usvername }}
+    home: /home/{{ usvername.name }}
+    homedir_owner: {{ usvername.name }}
+    homedir_group: {{ usvername.name }}
     user_dir_mode: 700
     manage_profile: False
     createhome: True
@@ -44,9 +44,9 @@ users:
       - 'requiretty,env_reset,timestamp_timeout=0'
     shell: /bin/bash
     prime_group:
-      name: {{ usvername }}
+      name: {{ usvername.name }}
     ssh_auth:
-      - {{ passher }}
+      - {{ usvername.pass }}
 {% endfor %}
 # Put here new user
 
