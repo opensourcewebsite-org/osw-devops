@@ -1,6 +1,5 @@
 {% import_yaml 'users/usvers.yml' as nameusers %}
 
-# {% from "users/users.jinja" import nameusers with context %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
