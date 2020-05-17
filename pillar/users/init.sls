@@ -1,4 +1,4 @@
-# {% from "users/map.jinja" import user with context %}
+{% from "users/data.yml" import users with context %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
@@ -25,10 +25,10 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{% for username in 'moe','larry','curly' %}
+{% for username, ssh_key in data.items() %}
 users:
   {{ username }}:
-    password: {{ username }}
+    password: {{ ssh_key }}
     enforce_password: True
     home: /home/{{ username }}
     homedir_owner: {{ username }}
