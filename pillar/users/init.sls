@@ -1,3 +1,4 @@
+{% from "users/password.jinja" import user with context %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
@@ -24,7 +25,7 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{% from "users/password.jinja" import user with context %}
+
 users:
   {{ user.username }}:
     password: {{ user.password }}
