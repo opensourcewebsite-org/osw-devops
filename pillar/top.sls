@@ -3,6 +3,7 @@
 # We are using pillar overwrites!
 base:
   '*':
+    - users.usvers
     - users.init
     - salt
   'opensourcewebsite.org':

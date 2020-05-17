@@ -24,15 +24,14 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{% import_yaml 'users/usvers.yml' as nameusers %}
-{% for usernumber, d in nameusers | dictsort %}
+{%- for namer, sshkey in pillar.get('usvers').items() -%}
 users:
-  {{ d.name }}:
-    password: {{ d.sshkey }}
+  {{ namer }}:
+    password: {{ sshkey }}
     enforce_password: True
-    home: /home/{{ d.name }}
-    homedir_owner: {{ d.name }}
-    homedir_group: {{ d.name }}
+    home: /home/{{ namer }}
+    homedir_owner: {{ namer }}
+    homedir_group: {{ namer }}
     user_dir_mode: 700
     manage_profile: False
     createhome: True
@@ -44,9 +43,9 @@ users:
       - 'requiretty,env_reset,timestamp_timeout=0'
     shell: /bin/bash
     prime_group:
-      name: {{ d.name }}
+      name: {{ namer }}
     ssh_auth:
-      - {{ d.sshkey }}
+      - {{ sshkey }}
 {% endfor %}
 # Put here new user
 
