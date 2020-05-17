@@ -27,12 +27,12 @@
 {% import_yaml 'users/usvers.yml' as nameusers %}
 {% for usernumber, d in nameusers | dictsort %}
 users:
-  {{ d.Name }}:
-    password: {{ d.Ssh_key }}
+  {{ d.name }}:
+    password: {{ d.sshkey }}
     enforce_password: True
-    home: /home/{{ d.Name }}
-    homedir_owner: {{ d.Name }}
-    homedir_group: {{ d.Name }}
+    home: /home/{{ d.name }}
+    homedir_owner: {{ d.name }}
+    homedir_group: {{ d.name }}
     user_dir_mode: 700
     manage_profile: False
     createhome: True
@@ -44,9 +44,9 @@ users:
       - 'requiretty,env_reset,timestamp_timeout=0'
     shell: /bin/bash
     prime_group:
-      name: {{ d.Name }}
+      name: {{ d.name }}
     ssh_auth:
-      - {{ Ssh_key }}
+      - {{ sshkey }}
 {% endfor %}
 # Put here new user
 

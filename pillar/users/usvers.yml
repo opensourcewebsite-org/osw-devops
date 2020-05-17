@@ -1,12 +1,12 @@
 User1:
-  Name: 'Petrarka'
-  Ssh_key: 'Randimka1'
+  name: 'Petrarka'
+  sshkey: 'Randimka1'
 User2:
-  Name: 'Ivanko111'
-  Ssh_key: 'Randimka1111'
+  name: 'Ivanko111'
+  sshkey: 'Randimka1111'
 User3:
-  Name: 'Petrarka222'
-  Ssh_key: 'Randimka222'
+  name: 'Petrarka222'
+  sshkey: 'Randimka222'
 User4:
-  Name: 'Petrarka333'
-  Ssh_key: 'Randimka222'
+  name: 'Petrarka333'
+  sshkey: 'Randimka222'
