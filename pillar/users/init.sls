@@ -25,14 +25,14 @@
 #      - ssh-rsa SSHRSA
 
 {% import_yaml 'users/usvers.yml' as nameusers %}
-{% for usvername, passher in nameusers.items() %}
+{% for usvername, passher, usvername2, passhe2 in nameusers.items() %}
 users:
   {{ usvername }}:
     password: {{ passher }}
     enforce_password: True
     home: /home/{{ usvername }}
-    homedir_owner: {{ usvername }}
-    homedir_group: {{ usvername }}
+    homedir_owner: {{ usvername2 }}
+    homedir_group: {{ usvername2 }}
     user_dir_mode: 700
     manage_profile: False
     createhome: True
@@ -46,7 +46,7 @@ users:
     prime_group:
       name: {{ usvername }}
     ssh_auth:
-      - ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFWi44Jxbkk4fzPFkDtElsxHeJ2bLHg5/KnjV0+h5zH8VRC71bkW2kqsOfTbjI1yHfWPmPQMDHL6Aj7jeg1qsRrDgGYj3chGo7asXn1lo84eiNtpFrjfFNYYfY7AYiXkAxMiYmWbm4+WXwW31Rz+xI5E20VKbjKeI740o1i28Bq52qdJw== ecdsa-key-20200515
+      - {{ passher2 }}
 {% endfor %}
 # Put here new user
 
