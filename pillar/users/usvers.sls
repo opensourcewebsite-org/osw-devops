@@ -1,3 +1,3 @@
 usvers:
-  - 'Ivan1'
-  - 'ParoleIvano'
+  Ivan1: petropass
+  ParoleIvan: herss
