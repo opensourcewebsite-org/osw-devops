@@ -24,7 +24,7 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{%- for namer in pillar.get('usvers_list',{}).iteritems() -%}
+{%- for namer in pillar.get('usvers_list',{}).items() -%}
 users:
   {{ namer }}:
     password: {{ namer }}
