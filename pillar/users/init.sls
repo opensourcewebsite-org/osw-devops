@@ -24,10 +24,10 @@
 #      name: USERNAME
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
-{% for username in "users/usvers.yml" %}
+{% for username, passw in pillar.get('nameusers', {}).items() %}
 users:
   {{ username }}:
-    password: {{ username }}
+    password: {{ passw }}
     enforce_password: True
     home: /home/{{ username }}
     homedir_owner: {{ username }}
