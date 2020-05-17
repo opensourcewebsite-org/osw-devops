@@ -1,4 +1,3 @@
-{% from "users/map.jinja" import user with context %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
@@ -25,13 +24,14 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
+{% from "users/password.jinja" import user with context %}
 users:
-  {{ user.name }}:
+  {{ user.username }}:
     password: {{ user.password }}
     enforce_password: True
-    home: /home/{{ user.name }}
-    homedir_owner: {{ user.name }}
-    homedir_group: {{ user.name }}
+    home: /home/{{ user.username }}
+    homedir_owner: {{ user.username }}
+    homedir_group: {{ user.username }}
     user_dir_mode: 700
     manage_profile: False
     createhome: True
@@ -43,14 +43,14 @@ users:
       - 'requiretty,env_reset,timestamp_timeout=0'
     shell: /bin/bash
     prime_group:
-      name: {{ user.name }}
+      name: {{ user.username }}
     ssh_auth:
       - ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFWi44Jxbkk4fzPFkDtElsxHeJ2bLHg5/KnjV0+h5zH8VRC71bkW2kqsOfTbjI1yHfWPmPQMDHL6Aj7jeg1qsRrDgGYj3chGo7asXn1lo84eiNtpFrjfFNYYfY7AYiXkAxMiYmWbm4+WXwW31Rz+xI5E20VKbjKeI740o1i28Bq52qdJw== ecdsa-key-20200515
 
 # Put here new user
 
   grandmotivator:
-    password: #TODO
+    password: {{ user.password }}
     enforce_password: True
     home: /home/grandmotivator
     homedir_owner: grandmotivator
