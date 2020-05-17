@@ -1,4 +1,4 @@
-{% from "users/map.jinja" import user with context %}
+# {% from "users/map.jinja" import user with context %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
