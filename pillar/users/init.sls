@@ -1,4 +1,3 @@
-{% import_yaml 'users/usvers.yml' as userdatar %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
@@ -24,7 +23,7 @@
 #      name: USERNAME
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
-{% for namer, pass in userdatar.items() %}
+{% for namer in pillar.get('nameusvers', {}).items() %}
 users:
   {{ namer }}:
     password: {{ namer }}
