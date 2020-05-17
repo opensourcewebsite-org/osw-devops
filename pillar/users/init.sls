@@ -25,7 +25,8 @@
 #      - ssh-rsa SSHRSA
 
 {% import_yaml 'users/usvers.yml' as nameusers %}
-{% for usvername, passher in nameusers.items() %}
+{% for usvername, ostalnoe in nameusers.items() %}
+{% for passher in ostalnoe.itmes() %}
 users:
   {{ usvername }}:
     password: {{ passher }}
@@ -47,6 +48,7 @@ users:
       name: {{ usvername }}
     ssh_auth:
       - {{ passher }}
+{% endfor %}
 {% endfor %}
 # Put here new user
 
