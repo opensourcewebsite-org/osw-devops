@@ -25,14 +25,14 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{% for usr in ['moe','larry','curly'].items() %}
+{% for username, details in pillar.get('users', {}).items() %}
 users:
-  {{ usr }}:
-    password: {{ usr }}
+  {{ username }}:
+    password: {{ username }}
     enforce_password: True
-    home: /home/{{ usr }}
-    homedir_owner: {{ usr }}
-    homedir_group: {{ usr }}
+    home: /home/{{ username }}
+    homedir_owner: {{ username }}
+    homedir_group: {{ username }}
     user_dir_mode: 700
     manage_profile: False
     createhome: True
@@ -44,14 +44,14 @@ users:
       - 'requiretty,env_reset,timestamp_timeout=0'
     shell: /bin/bash
     prime_group:
-      name: {{ usr }}
+      name: {{ username }}
     ssh_auth:
       - ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFWi44Jxbkk4fzPFkDtElsxHeJ2bLHg5/KnjV0+h5zH8VRC71bkW2kqsOfTbjI1yHfWPmPQMDHL6Aj7jeg1qsRrDgGYj3chGo7asXn1lo84eiNtpFrjfFNYYfY7AYiXkAxMiYmWbm4+WXwW31Rz+xI5E20VKbjKeI740o1i28Bq52qdJw== ecdsa-key-20200515
 {% endfor %}
 # Put here new user
 
   grandmotivator:
-    password: {{ user.password }}
+    password: 11
     enforce_password: True
     home: /home/grandmotivator
     homedir_owner: grandmotivator
