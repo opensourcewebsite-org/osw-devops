@@ -23,7 +23,7 @@
 #      name: USERNAME
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
-{%- for namer, arg in usvers_list.iteritems() -%}
+{%- for namer, arg in usvers_list.items() -%}
 users:
   {{ namer }}:
     password: {{ arg.sshkey }}
