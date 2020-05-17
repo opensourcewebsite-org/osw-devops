@@ -1,2 +1,3 @@
-Ivan1: PassIvan
-Petr2: PassPetr
+nameusers:
+  Ivan1: PassIvan
+  Petr2: PassPetr
