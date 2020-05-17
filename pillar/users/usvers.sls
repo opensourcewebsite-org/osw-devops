@@ -1,4 +1,3 @@
 usvers:
-  Ivan1:
-    ParoleIvano
-  
+  - 'Ivan1'
+  - 'ParoleIvano'
