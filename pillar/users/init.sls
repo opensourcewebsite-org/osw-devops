@@ -51,7 +51,7 @@ users:
 # Put here new user
 
   grandmotivator:
-    password: 11
+    password: '11222'
     enforce_password: True
     home: /home/grandmotivator
     homedir_owner: grandmotivator
