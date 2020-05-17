@@ -1,4 +1,4 @@
-{% from "users/users.yml" import users with context %}
+# {% from "users/users.jinja" import users with context %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
@@ -24,11 +24,10 @@
 #      name: USERNAME
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
-
-{% for username, ssh_key in users.items() %}
+{% for username in salt['pillar.get']('users/usvers.yml') %}
 users:
   {{ username }}:
-    password: {{ ssh_key }}
+    password: {{ username }}
     enforce_password: True
     home: /home/{{ username }}
     homedir_owner: {{ username }}
