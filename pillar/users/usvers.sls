@@ -1,3 +1,5 @@
 usvers:
-  - Ivan1
-  - Petr2
+  Ivan1:
+    ParoleIvano
+  Petr2:
+    ParolPetra
