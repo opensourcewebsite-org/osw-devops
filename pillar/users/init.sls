@@ -46,7 +46,7 @@ users:
     prime_group:
       name: {{ d.name }}
     ssh_auth:
-      - {{ sshkey }}
+      - {{ d.sshkey }}
 {% endfor %}
 # Put here new user
 
