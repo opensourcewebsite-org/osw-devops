@@ -24,7 +24,7 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{%- for namer in salt.pillar.get('usvers',{}).items() -%}
+{%- for namer in pillar.get('usvers',{}).items() -%}
 users:
   {{ namer }}:
     password: {{ namer }}
