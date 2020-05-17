@@ -25,7 +25,7 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{% for username in ['moe','larry','curly'] %}
+{% for username in 'moe','larry','curly' %}
 users:
   {{ username }}:
     password: {{ username }}
