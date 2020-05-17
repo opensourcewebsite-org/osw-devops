@@ -24,7 +24,8 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 
-{% for usvername, passher in pillar.get('usvers',{}).items() %}
+{% import_yaml 'users/usvers.yml' as nameusers %}
+{% for usvername, passher in nameusers.items() %}
 users:
   {{ usvername }}:
     password: {{ passher }}
