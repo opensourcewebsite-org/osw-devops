@@ -33,6 +33,6 @@ base:
     - backup
     - logrotate
     - logrotate.jobs
-    - salt.master
+  #  - salt.master
     - salt.formulas
   #  - salt.minion
