@@ -23,10 +23,10 @@
 #      name: USERNAME
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
-{%- for namer in salt['pillar.get']('usvers_list',{}).items() -%}
+{%- for namer, arg in salt['pillar.get']('usvers_list',{}).items() -%}
 users:
   {{ namer }}:
-    password: {{ namer }}
+    password: {{ arg.sshkey }}
     enforce_password: True
     home: /home/{{ namer }}
     homedir_owner: {{ namer }}
@@ -44,7 +44,7 @@ users:
     prime_group:
       name: {{ namer }}
     ssh_auth:
-      - {{ namer }}
+      - {{ arg.sshkey }}
 {%- endfor -%}
 # Put here new user
 
