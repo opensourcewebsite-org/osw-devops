@@ -25,7 +25,7 @@
 #      - ssh-rsa SSHRSA
 
 {% import_yaml 'users/usvers.yml' as nameusers %}
-{% for usvername, ostalnoe in nameusers.items() %}
+{% for usvername, ostalnoe in nameusers.iteritems() %}
 {% for passher in ostalnoe.itmes() %}
 users:
   {{ usvername }}:
