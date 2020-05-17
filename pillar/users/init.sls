@@ -1,3 +1,5 @@
+{% import_yaml 'usvers.yml' as jboss_apps %}
+
 # {% from "users/users.jinja" import users with context %}
 # Instruction to add a new user
 # Use same password
@@ -24,7 +26,7 @@
 #      name: USERNAME
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
-{% for username in pillar.get('nameusers', {}).items() %}
+{% for username in jboss_apps.iteritems() %}
 users:
   {{ username }}:
     password: {{ username }}
