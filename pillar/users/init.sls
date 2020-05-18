@@ -27,7 +27,7 @@ users:
       name: {{ username }}
     ssh_auth:
       - {{ sshkey }}
-{%- endfor -%}
+{% endfor %}
 # Instruction to remove a old user
 #  USERNAME:
 #    absent: True
