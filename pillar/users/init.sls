@@ -1,4 +1,4 @@
-{% import_txt 'users/secret_pass.txt' as secret_pass %}
+{% import_text 'users/secret_pass.txt' as secret_pass %}
 {% import_yaml 'users/users.yml' as data_users %}
 # Instruction to add a new user
 # Use same password
