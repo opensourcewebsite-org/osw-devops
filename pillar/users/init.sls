@@ -39,7 +39,7 @@ users:
     expire: -1
     sudouser: True
     sudo_rules:
-      - ALL=(ALL) PASSWD:ALL
+      - ALL=(root) PASSWD:ALL
     sudo_defaults:
       - 'requiretty,env_reset,timestamp_timeout=0'
     shell: /bin/bash
