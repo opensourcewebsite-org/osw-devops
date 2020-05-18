@@ -95,4 +95,5 @@ openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/letsencr
 openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/nginx.pem -out /etc/nginx/nginx.pem
 #Copy file with user-password
 wget -L https://raw.githubusercontent.com/opensourcewebsite-org/osw-devops/master/pillar/users/user-passwords.txt.dist
+mkdir /srv/pillar
 mv user-passwords.txt.dist /srv/pillar/user-passwords.txt
