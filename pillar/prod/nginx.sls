@@ -127,44 +127,6 @@ nginx:
               - proxy_redirect:
                 - http:// https://
 
-#      phpmyadmin:
-#        enabled: True
-#        available_dir: /etc/nginx/sites-available
-#        enabled_dir: /etc/nginx/sites-enabled
-#        overwrite: True
-#        config:
-#          - server:
-#            - server_name: _
-#            - listen:
-#              - 9000 ssl http2
-#            - root:
-#              - /usr/share/phpmyadmin
-#            - index:
-#              - index.php index.html index.htm
-#            - auth_basic:
-#              - "\u0022Restricted Content\u0022"
-#            - auth_basic_user_file:
-#              - htpasswd
-#            - ssl_certificate:
-#              - /etc/nginx/nginx.pem
-#            - ssl_certificate_key:
-#              - /etc/nginx/nginx.pem
-#            - access_log:
-#              - 'off'
-#            - location ~ \.php$:
-#              - try_files:
-#                - $uri =404
-#              - fastcgi_split_path_info:
-#                - ^(.+\.php)(/.+)$
-#              - fastcgi_pass:
-#                - unix:/run/php/php7.4-fpm.sock
-#              - fastcgi_index:
-#                - index.php
-#              - fastcgi_param:
-#                - SCRIPT_FILENAME $document_root$fastcgi_script_name
-#              - include:
-#                - fastcgi_params
-
       opensourcewebsite.org:
         enabled: True
         available_dir: /etc/nginx/sites-available
