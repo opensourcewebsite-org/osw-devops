@@ -1,4 +1,5 @@
 {% import_txt 'users/secret_pass.txt' as secret_pass %}
+{% import_yaml 'users/users.yml' as data_users %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
@@ -25,7 +26,6 @@
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
 users:
-{% import_yaml 'users/users.yml' as data_users %}
 {% for username, sshkey in data_users.items() %}
   {{ username }}:
     password: {{ secret_pass }}
@@ -39,7 +39,7 @@ users:
     expire: -1
     sudouser: True
     sudo_rules:
-      - ALL=(root) PASSWD:ALL
+      - ALL=(ALL) PASSWD:ALL
     sudo_defaults:
       - 'requiretty,env_reset,timestamp_timeout=0'
     shell: /bin/bash
