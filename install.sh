@@ -78,7 +78,7 @@ systemctl restart salt-minion
 sleep 60
 salt-key -a opensourcewebsite.org -y
 
-#swap
+# Swap
 fallocate -l 4G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
@@ -86,14 +86,15 @@ swapon /swapfile
 echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 sysctl vm.swappiness=0
 
-#certifications for nginx
+# Certifications for nginx
 mkdir /etc/letsencrypt
 mkdir /etc/letsencrypt/live
 mkdir /etc/letsencrypt/live/opensourcewebsite.org
 mkdir /etc/nginx
 openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/letsencrypt/live/opensourcewebsite.org/privkey.pem -out /etc/letsencrypt/live/opensourcewebsite.org/fullchain.pem
 openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/nginx.pem -out /etc/nginx/nginx.pem
-#Copy file with user-password
+
+# Copy a file with user-passwords
 wget -L https://raw.githubusercontent.com/opensourcewebsite-org/osw-devops/master/pillar/users/user-passwords.txt.dist
 mkdir /srv/pillar
 mv user-passwords.txt.dist /srv/pillar/user-passwords.txt
