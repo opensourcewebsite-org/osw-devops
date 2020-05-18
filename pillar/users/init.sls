@@ -3,8 +3,8 @@
 # Instruction to add a new user
 # Use file users.yml
 # Add variables with your data (USERNAME: SSHRSA)
-# Rename secret_pass.txt.dist to secret_pass.txt and put /srv/pillar/secret_pass.txt
-# Put your hash password in file secret_pass.txt
+# Rename user-passwords.txt.dist to user-passwords.txt and put /srv/pillar/user-passwords.txt
+# Put your hash password in file user-passwords.txt
 users:
 {% for username, sshkey in users.items() %}
   {{ username }}:
