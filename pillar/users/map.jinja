@@ -1,8 +1,0 @@
-{% set map = {
-    'Debian': {
-        'name': 'PUT_USERNAME_HERE',
-        'password': 'PUT_PASSWORD_HERE',
-    },
-} %}
-
-{% set user = map.get(grains.os_family) %}

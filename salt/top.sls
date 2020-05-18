@@ -25,8 +25,6 @@ base:
     - php.mysql
     - php.cli
     - php.xml
-  # - phpmyadmin
-    - mysqld
     - gitautodeploy
     - supervisord
     - composer

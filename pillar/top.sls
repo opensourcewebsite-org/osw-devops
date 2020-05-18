@@ -4,14 +4,13 @@
 base:
   '*':
     - users.init
- #  - salt
+    - salt
   'opensourcewebsite.org':
     - prod.users
     - prod.php74
     - prod.nginx
-    - prod.mysqld
     - prod.supervisor
     - prod.composer
     - prod.backup
     - prod.logrotate
- #  - prod.salt
+    - prod.salt
