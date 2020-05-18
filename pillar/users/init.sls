@@ -1,30 +1,9 @@
 {% import_text 'users/secret_pass.txt' as secret_pass %}
 {% import_yaml 'users/users.yml' as data_users %}
 # Instruction to add a new user
-# Use same password
-# Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
-# Put new user first in user lists
-#  USERNAME:
-#    fullname: FIRSTNAME LASTNAME
-#    password: #TODO
-#    enforce_password: True
-#    home: /home/USERNAME
-#    homedir_owner: USERNAME
-#    homedir_group: USERNAME
-#    user_dir_mode: 700
-#    manage_profile: False
-#    createhome: True
-#    expire: 4102444800
-#    sudouser: True
-#    sudo_rules:
-#      - ALL=(root) PASSWD:ALL
-#    sudo_defaults:
-#      - 'requiretty,env_reset,timestamp_timeout=0'
-#    shell: /bin/bash
-#    prime_group:
-#      name: USERNAME
-#    ssh_auth:
-#      - ssh-rsa SSHRSA
+# Use file users.yml
+# Add variables with your data (USERNAME: SSHRSA)
+# Put your hash password in file secret_pass.txt
 users:
 {% for username, sshkey in data_users.items() %}
   {{ username }}:
