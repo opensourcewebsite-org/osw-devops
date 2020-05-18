@@ -9,7 +9,6 @@ base:
     - prod.users
     - prod.php74
     - prod.nginx
-    - prod.mysqld
     - prod.supervisor
     - prod.composer
     - prod.backup
