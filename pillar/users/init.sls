@@ -1,3 +1,4 @@
+{% import_txt 'users/secret_pass.txt' as secret_pass %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
@@ -27,7 +28,7 @@ users:
 {% import_yaml 'users/users.yml' as data_users %}
 {% for username, sshkey in data_users.items() %}
   {{ username }}:
-    password: {{ sshkey }}
+    password: {{ secret_pass }}
     enforce_password: True
     home: /home/{{ username }}
     homedir_owner: {{ username }}
