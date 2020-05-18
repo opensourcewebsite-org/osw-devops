@@ -23,9 +23,9 @@
 #      name: USERNAME
 #    ssh_auth:
 #      - ssh-rsa SSHRSA
+users:
 {% import_yaml 'users/users.yml' as data_users %}
 {% for username, sshkey in data_users.items() %}
-users:
   {{ username }}:
     password: {{ sshkey }}
     enforce_password: True
