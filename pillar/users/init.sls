@@ -1,4 +1,4 @@
-{% import_txt 'users/secret_pass.txt' as secret_pass %}
+{% import_text 'users/secret_pass.txt' as secret_pass %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
