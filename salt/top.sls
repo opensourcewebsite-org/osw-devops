@@ -1,7 +1,6 @@
 base:
   '*':
     - match: compound
-    - salt.minion
     - repos
     - packages
     - cron
@@ -26,13 +25,12 @@ base:
     - php.mysql
     - php.cli
     - php.xml
-    - phpmyadmin
-    - mysqld
     - gitautodeploy
     - supervisord
     - composer
     - backup
     - logrotate
     - logrotate.jobs
-    - salt.master
+  #  - salt.master
     - salt.formulas
+  #  - salt.minion

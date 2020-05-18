@@ -1,60 +1,46 @@
 certbot-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/certbot/certbot/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/certbot-ubuntu-bionic.list
+    - ppa: certbot/certbot
 
 deadsnakes-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/deadsnakes-ubuntu-bionic.list
-
-digitalocean-pkgrepo:
-  pkgrepo.managed:
-    - name: deb https://repos.sonar.digitalocean.com/apt main main
-    - file: /etc/apt/sources.list.d/digitalocean.list
-
-digitalocean-agent-pkgrepo:
-  pkgrepo.managed:
-    - name: deb https://repos.insights.digitalocean.com/apt/do-agent main main
-    - file: /etc/apt/sources.list.d/digitalocean-agent.list
-
-gitlab-runner-ubuntu-bionic-pkgrepo:
-  pkgrepo.managed:
-    - name: deb https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ bionic main
-    - file: /etc/apt/sources.list.d/gitlab-runner-ubuntu-bionic.list
+    - ppa: deadsnakes/ppa
 
 nginx-stable-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/nginx/stable/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/nginx-stable-ubuntu-bionic.list
+    - ppa: nginx/stable
 
 olipo186-git-auto-deploy-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/olipo186/git-auto-deploy/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/olipo186-git-auto-deploy-ubuntu-bionic.list
+    - ppa: olipo186/git-auto-deploy
 
 ondrej-php-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/ondrej/php/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/ondrej-php-ubuntu-bionic.list
+    - ppa: ondrej/php
 
 openjdk-r-ppa-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
-    - name: deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/openjdk-r-ppa-ubuntu-bionic.list
+    - ppa: openjdk-r/ppa
 
-saltstack-ubuntu-bionic-pkgrepo:
-  pkgrepo.managed:
-    - name: deb http://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest bionic main
-    - file: /etc/apt/sources.list.d/saltstack-ubuntu-bionic.list
+#saltstack-ubuntu-bionic-pkgrepo:
+#  pkgrepo.managed:
+#    - humanname:  SaltStack Package Repository
+#    - name:       deb http://repo.saltstack.com/apt/ubuntu/ubuntu{{ grains['osrelease_info'][0] }}/latest {{ grains['oscodename'] }} main
+#    - dist:       {{ grains['oscodename'] }}
+#    - file:       /etc/apt/sources.list.d/saltstack.list
+#    - gpgcheck:   1
+#    - key_url:    https://repo.saltstack.com/apt/ubuntu/ubuntu{{ grains['osrelease_info'][0] }}/latest/SALTSTACK-GPG-KEY.pub
+#    - clean_file: true
 
 # https://wiki.ubuntu.com/Mirrors
-sg-ubuntu-bionic-pkgrepo:
-  pkgrepo.managed:
-    - name: deb http://sg.archive.ubuntu.com/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/sg-ubuntu-bionic.list
+#sg-ubuntu-bionic-pkgrepo:
+#  pkgrepo.managed:
+#    - name: deb http://sg.archive.ubuntu.com/ubuntu bionic main
+#    - file: /etc/apt/sources.list.d/sg-ubuntu-bionic.list
 
-zabbix-ubuntu-bionic-pkgrepo:
-  pkgrepo.managed:
-    - name: deb http://repo.zabbix.com/zabbix/4.2/ubuntu bionic main
-    - file: /etc/apt/sources.list.d/zabbix-ubuntu-bionic.list
+#zabbix-ubuntu-bionic-pkgrepo:
+#  pkgrepo.managed:
+#    - name: deb http://repo.zabbix.com/zabbix/4.2/ubuntu bionic main
+#    - file: /etc/apt/sources.list.d/zabbix-ubuntu-bionic.list
+#    - keyid: 082AB56BA14FE591
+#    - keyserver: keyserver.ubuntu.com

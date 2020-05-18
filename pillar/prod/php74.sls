@@ -48,7 +48,7 @@ php:
         settings:
           global:
             pid: /run/php/php7.4-fpm.pid
-            error_log: /var/log/php/php7.4-fpm.log
+            error_log: /var/log/php7.4-fpm.log
 
     # settings for fpm-pools
     pools:
@@ -92,7 +92,7 @@ php:
             pm.start_servers: 2
             pm.min_spare_servers: 2
             pm.max_spare_servers: 5
-            slowlog: /var/log/php/php7.4-fpm.slow.log
+            slowlog: /var/log/php7.4-fpm.slow.log
             request_slowlog_timeout: 5s
             'php_admin_value[memory_limit]': 128M
 

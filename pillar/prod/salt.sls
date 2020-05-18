@@ -4,11 +4,11 @@ salt:
   master_remove_config: False
   install_packages: True
   py_ver: 'py3'
-  version: 3000.2+ds-1
+  version: 3000.3
   lookup:
     salt_master: 'salt-master'
     salt_minion: 'salt-minion'
-  release: '3000.2'
+  release: '3000.3'
   master:
     fileserver_backend:
       - git
@@ -20,11 +20,23 @@ salt:
       base:
         - /srv/pillar
     gitfs_remotes:
-      - git://github.com/saltstack-formulas/salt-formula.git:
-        - base: develop
-      - git@github.com:opensourcewebsite-org/osw-devops.git:
-        - privkey: /root/.ssh/id_rsa
-        - pubkey: /root/.ssh/id_rsa.pub
+      - https://github.com/saltstack-formulas/salt-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/cron-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/nginx-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/php-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/supervisor-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/users-formula.git:
+        - base: master
+      - https://github.com/saltstack-formulas/logrotate-formula.git:
+        - base: master
+      - https://github.com/opensourcewebsite-org/osw-devops.git:
+#        - privkey: /root/.ssh/id_rsa
+#        - pubkey: /root/.ssh/id_rsa.pub
         - root: salt
         - base: master
     top_file_merging_strategy: merge
@@ -36,12 +48,12 @@ salt:
     gitfs_update_interval: 80
     ext_pillar:
       - git:
-        - git@github.com:opensourcewebsite-org/osw-devops.git:
+        - https://github.com/opensourcewebsite-org/osw-devops.git:
           - root: pillar
-          - privkey: /root/.ssh/id_rsa
-          - pubkey: /root/.ssh/id_rsa.pub
+#          - privkey: /root/.ssh/id_rsa
+#          - pubkey: /root/.ssh/id_rsa.pub
   minion:
-    master: opensourcewebsite.org
+    master: 127.0.0.1
 #    schedule:
 #      - highstate:
 #        - function: state.apply
