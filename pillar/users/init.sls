@@ -1,4 +1,4 @@
-{% import_text 'users/secret_pass.txt' as secret_pass %}
+{% import_txt 'users/secret_pass.txt' as secret_pass %}
 # Instruction to add a new user
 # Use same password
 # Replace variables with your data (USERNAME, FIRSTNAME, LASTNAME, SSHRSA)
@@ -39,7 +39,7 @@ users:
     expire: -1
     sudouser: True
     sudo_rules:
-      - ALL=(ALL) NOPASSWD:ALL
+      - ALL=(root) PASSWD:ALL
     sudo_defaults:
       - 'requiretty,env_reset,timestamp_timeout=0'
     shell: /bin/bash
@@ -62,7 +62,7 @@ users:
     expire: -1
     sudouser: True
     sudo_rules:
-      - ALL=(ALL) NOPASSWD:ALL
+      - ALL=(root) PASSWD:ALL
     sudo_defaults:
       - 'requiretty,env_reset,timestamp_timeout=0'
     shell: /bin/bash
