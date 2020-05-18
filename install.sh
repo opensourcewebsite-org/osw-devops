@@ -93,3 +93,6 @@ mkdir /etc/letsencrypt/live/opensourcewebsite.org
 mkdir /etc/nginx
 openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/letsencrypt/live/opensourcewebsite.org/privkey.pem -out /etc/letsencrypt/live/opensourcewebsite.org/fullchain.pem
 openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/nginx.pem -out /etc/nginx/nginx.pem
+#Copy file with user-password
+wget -L https://raw.githubusercontent.com/opensourcewebsite-org/osw-devops/master/pillar/users/user-passwords.txt.dist
+mv user-passwords.txt.dist /srv/pillar/user-passwords.txt

@@ -1,14 +1,14 @@
-{% import_text '/srv/pillar/secret_pass.txt' as secret_pass %}
-{% import_yaml 'users/users.yml' as data_users %}
+{% import_text '/srv/pillar/user-passwords.txt' as password %}
+{% import_yaml 'users/users.yml' as users %}
 # Instruction to add a new user
 # Use file users.yml
 # Add variables with your data (USERNAME: SSHRSA)
 # Rename secret_pass.txt.dist to secret_pass.txt and put /srv/pillar/secret_pass.txt
 # Put your hash password in file secret_pass.txt
 users:
-{% for username, sshkey in data_users.items() %}
+{% for username, sshkey in users.items() %}
   {{ username }}:
-    password: {{ secret_pass }}
+    password: {{ password }}
     enforce_password: True
     home: /home/{{ username }}
     homedir_owner: {{ username }}
