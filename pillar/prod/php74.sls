@@ -13,15 +13,7 @@ php:
         - php7.4-common
       xml:
         - php7.4-xml
-      soap:
-        - php7.4-soap
-      xdebug:
-        - php-xdebug
-      intl:
-        - php7.4-intl
-      uozp:
-        - php-uopz
-
+      
     fpm:
       conf: /etc/php/7.4/fpm/php-fpm.conf
       ini: /etc/php/7.4/fpm/php.ini
