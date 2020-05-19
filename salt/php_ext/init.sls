@@ -1,6 +1,6 @@
 packages:
   pkg.installed:
-    pkgs:
+    - pkgs:
       - php7.4-intl
       - php-uopz
       - php-xdebug
