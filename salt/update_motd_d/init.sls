@@ -17,7 +17,7 @@
 create_htpasswd:
   file.line:
     - name: /etc/nginx/htpasswd
-    - mode: insert
+    - mode: delete
     - content:
     - create: True
 
