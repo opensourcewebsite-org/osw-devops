@@ -18,10 +18,9 @@ create_htpasswd:
   file.line:
     - name: /etc/nginx/htpasswd
     - mode: insert
-    - content: ''
+    - content:
     - create: True
 
 generate_ssh_key:
   cmd.run:
     - name: ssh-keygen -q -N '' -f /www/opensourcewebsite.org/.ssh/id_rsa
-    - unless: test -f /www/opensourcewebsite.org/.ssh/id_rsa
