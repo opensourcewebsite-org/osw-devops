@@ -13,3 +13,8 @@
     - group: root
     - mode: 644
     - create: False
+
+create_htpasswd:
+  file.line:
+    - name: /etc/nginx/htpasswd
+    - create: True
