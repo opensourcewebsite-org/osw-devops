@@ -1,6 +1,6 @@
 #!/bin/bash
 apt-get update -y
-apt-get upgrade -y
+apt-get dist-upgrade -y
 wget -O - https://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
 cat <<EOF > /etc/apt/sources.list.d/saltstack.list
 deb http://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest bionic main
