@@ -1,4 +1,4 @@
-packages:
+php_ext:
   pkg.installed:
     - pkgs:
       - php7.4-intl
