@@ -14,3 +14,4 @@ base:
     - prod.backup
     - prod.logrotate
     - prod.salt
+    - prod.exim

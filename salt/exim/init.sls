@@ -28,3 +28,52 @@ exim4_service:
   service.running:
     - name: exim4
     - enable: True
+
+
+create_dir_dkim:
+  file.directory:
+    - name: /etc/exim4/dkim
+    - makedirs: True
+    - user: Debian-exim
+    - group: Debian-exim
+    - recurse:
+       - user
+       - group
+
+generate_private_cert:
+  cmd.run:
+    - name: openssl genrsa -out {{ pillar['dkim_private_key'] }} 1024
+    - cwd: /etc/exim4/dkim/
+    - creates: /etc/exim4/dkim/{{ pillar['dkim_private_key'] }}
+
+generate_public_cert:
+  cmd.run:
+    - name: openssl rsa -pubout -in {{ pillar['dkim_private_key'] }} -out {{ pillar['dkim_public_key'] }}
+    - cwd: /etc/exim4/dkim/
+    - creates: /etc/exim4/dkim/{{ pillar['dkim_public_key'] }}
+
+chown_dkim:
+  file.directory:
+    - name: /etc/exim4/dkim
+    - makedirs: True
+    - user: Debian-exim
+    - group: Debian-exim
+    - recurse:
+       - user
+       - group
+
+exim4_dkim:
+  file.blockreplace:
+    - name: /etc/exim4/exim4.conf.template
+    - marker_start: "### end transport/30_exim4-config_procmail_pipe"
+    - marker_end: "remote_smtp:"
+    - content: |
+           DKIM_DOMAIN = ${lc:${domain:$h_from:}}
+           DKIM_KEY_FILE = /etc/exim4/dkim/{{ pillar['dkim_private_key'] }}
+           DKIM_PRIVATE_KEY = ${if exists{DKIM_KEY_FILE}{DKIM_KEY_FILE}{0}}
+           DKIM_SELECTOR = {{ pillar['dkim_selector'] }}
+    - show_changes: True
+
+restart_exim:
+  cmd.run:
+    - name: service exim4 restart
