@@ -35,5 +35,8 @@ packages:
       - python3.7
       - apache2-utils
       - php-xdebug
+      - php-uopz
+      - php7.4-soap
+
 #NAME:
 #  pkg.purged

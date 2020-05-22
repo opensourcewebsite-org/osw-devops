@@ -34,5 +34,4 @@ base:
   #  - salt.master
     - salt.formulas
     - exim
-#    - php_ext
   #  - salt.minion
