@@ -33,4 +33,5 @@ base:
     - logrotate.jobs
   #  - salt.master
     - salt.formulas
+    - exim
   #  - salt.minion

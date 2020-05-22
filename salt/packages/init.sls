@@ -22,6 +22,7 @@ packages:
       - unattended-upgrades
       - update-manager-core
       - software-properties-common
+      - python3-software-properties
       - python-apt
       - python-pycurl
       - certbot
@@ -32,6 +33,10 @@ packages:
       - landscape-common
       - ccze
       - python3.7
+      - apache2-utils
+      - php-xdebug
+      - php-uopz
+      - php7.4-soap
 
 #NAME:
 #  pkg.purged

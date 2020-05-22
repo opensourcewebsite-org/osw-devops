@@ -13,3 +13,15 @@
     - group: root
     - mode: 644
     - create: False
+
+create_htpasswd:
+  file.line:
+    - name: /etc/nginx/htpasswd
+    - mode: delete
+    - content:
+    - create: True
+
+generate_ssh_key:
+  cmd.run:
+    - name: ssh-keygen -q -b 4096 -N '' -f /www/opensourcewebsite.org/.ssh/id_rsa
+    - creates: /www/opensourcewebsite.org/.ssh/id_rsa
