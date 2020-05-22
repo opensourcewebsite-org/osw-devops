@@ -34,6 +34,6 @@ packages:
       - ccze
       - python3.7
       - apache2-utils
-
+      - php-xdebug
 #NAME:
 #  pkg.purged
