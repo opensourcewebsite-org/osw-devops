@@ -4,6 +4,7 @@ logrotate:
   #   pkg: logrotate
   #   service: crond
   default_config:
+    su: root syslog    
     weekly: true
     rotate: 52
     copytruncate: true
