@@ -4,7 +4,7 @@ logrotate:
   #   pkg: logrotate
   #   service: crond
   default_config:
-    su: root syslog    
+    su: root syslog
     weekly: true
     rotate: 52
     copytruncate: true
@@ -20,8 +20,6 @@ logrotate:
       config:
         - daily
         - rotate 30
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - create
@@ -51,10 +49,6 @@ logrotate:
         - /var/log/cron.log
         - /var/log/debug
       config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - create
@@ -67,10 +61,6 @@ logrotate:
         - /var/log/dpkg.log
         - /var/log/alternatives.log
       config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - sharedscripts
@@ -78,10 +68,6 @@ logrotate:
       path:
         - /var/log/apt/*.log
       config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - sharedscripts
@@ -89,47 +75,13 @@ logrotate:
       path:
         - /var/log/letsencrypt/*.log
       config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - sharedscripts
-    mysql-server:
-      path:
-        - /var/log/mysql/*.log
-      config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
-        - missingok
-        - notifempty
-        - sharedscripts
-        - postrotate
-        - test -x /usr/bin/mysqladmin || exit 0
-        # If this fails, check debian.conf!
-        - MYADMIN="/usr/bin/mysqladmin --defaults-file=/etc/mysql/debian.cnf"
-        - if [ -z "`$MYADMIN ping 2>/dev/null`" ]; then
-        # Really no mysqld or rather a missing debian-sys-maint user?
-        # If this occurs and is not a error please report a bug.
-        #if ps cax | grep -q mysqld; then
-        - if killall -q -s0 -umysql mysqld; then
-        - exit 1
-        - fi
-        - else
-        - $MYADMIN flush-logs
-        - fi
-        - endscript
     nginx:
       path:
         - /var/log/nginx/*.log
       config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - sharedscripts
@@ -141,28 +93,10 @@ logrotate:
         - postrotate
         - invoke-rc.d nginx rotate >/dev/null 2>&1
         - endscript
-    php7.2-fpm:
-      path:
-        - /var/log/php/php7.2-fpm.log
-      config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
-        - missingok
-        - notifempty
-        - sharedscripts
-        - postrotate
-        - /usr/lib/php/php7.2-fpm-reopenlogs
-        - endscript
     php7.4-fpm:
       path:
         - /var/log/php7.4-fpm.log
       config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - sharedscripts
@@ -175,10 +109,6 @@ logrotate:
         - /var/log/salt/minion
         - /var/log/salt/key
       config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - sharedscripts
@@ -186,10 +116,6 @@ logrotate:
       path:
         - /var/log/unattended-upgrades/*.log
       config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - sharedscripts
@@ -199,22 +125,14 @@ logrotate:
         - /www/opensourcewebsite.org/htdocs/runtime/logs/*.log
       config:
         - su opensourcewebsite.org opensourcewebsite.org
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - sharedscripts
     php-fpm-slow:
       path:
         - /www/opensourcewebsite.org/logs/slow.log
-        - /var/log/php/*slow.log
+        - /var/log/*slow.log
       config:
-        - weekly
-        - rotate 52
-        - compress
-        - delaycompress
         - missingok
         - notifempty
         - sharedscripts
