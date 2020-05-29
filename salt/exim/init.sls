@@ -74,6 +74,13 @@ exim4_dkim:
            DKIM_SELECTOR = {{ pillar['dkim_selector'] }}
     - show_changes: True
 
+exim4_config_localmail:
+  file.line:
+    - name: /etc/exim4/exim4.conf.template
+    - mode: replace
+    - content: 'domainlist local_domains = localhost : localhost.localdomain'
+    - match: 'domainlist local_domains = MAIN_LOCAL_DOMAINS '
+
 restart_exim:
   cmd.run:
     - name: service exim4 restart
