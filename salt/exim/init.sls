@@ -79,7 +79,7 @@ exim4_config_localmail:
     - name: /etc/exim4/exim4.conf.template
     - mode: replace
     - content: 'domainlist local_domains = localhost : localhost.localdomain'
-    - match: 'domainlist local_domains = MAIN_LOCAL_DOMAINS '
+    - match: 'domainlist local_domains = MAIN_LOCAL_DOMAINS'
 
 restart_exim:
   cmd.run:
