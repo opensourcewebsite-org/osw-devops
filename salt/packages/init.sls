@@ -37,6 +37,7 @@ packages:
       - php-xdebug
       - php-uopz
       - php7.4-soap
+      - php7.4-bcmath
 
 #NAME:
 #  pkg.purged

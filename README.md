@@ -2,9 +2,7 @@
 
 Server Architecture for OpenSourceWebsite, using [SaltStack](https://www.saltstack.com).
 
-The repository is a part of the [OpenSourceWebsite Organization](https://github.com/opensourcewebsite-org).
-
-This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md).
+The repository is a part of the [OpenSourceWebsite Organization](https://github.com/opensourcewebsite-org). This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Contributing
 

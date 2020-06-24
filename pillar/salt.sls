@@ -4,10 +4,10 @@ salt:
   master_remove_config: False
   install_packages: True
   py_ver: 'py3'
-  version: 3000.3+ds-1
+  version: 3001
   lookup:
     salt_minion: 'salt-minion'
-  release: '3000.3'
+  release: '3001'
   minion:
     master: 127.0.0.1
 #    schedule:
