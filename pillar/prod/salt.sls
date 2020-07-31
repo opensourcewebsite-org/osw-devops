@@ -45,7 +45,8 @@ salt:
     gitfs_saltenv_whitelist: base
     git_pillar_env: base
     git_pillar_root: pillar
-    gitfs_update_interval: 80
+    gitfs_update_interval: 63072000
+    roots_update_interval: 63072000
     ext_pillar:
       - git:
         - https://github.com/opensourcewebsite-org/osw-devops.git:

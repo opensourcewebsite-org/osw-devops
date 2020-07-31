@@ -32,3 +32,19 @@ include:
         - service: supervisor.service
     - require:
       - superlance
+
+chown_log_file:
+  file.managed:
+    - name: /www/opensourcewebsite.org/htdocs/runtime/logs/cron-stdout.log
+    - user: opensourcewebsite.org
+    - group: opensourcewebsite.org
+    - mode: 644
+    - create: False
+
+chown_log_file2:
+  file.managed:
+    - name: /www/opensourcewebsite.org/htdocs/runtime/logs/cron-stderr.log
+    - user: opensourcewebsite.org
+    - group: opensourcewebsite.org
+    - mode: 644
+    - create: False
