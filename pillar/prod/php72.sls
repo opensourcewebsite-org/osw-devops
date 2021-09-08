@@ -120,6 +120,7 @@ php:
         upload_max_filesize: '200M'
         max_execution_time: 360
         max_input_time: 360
+        default_socket_timeout: 360
       'CLI Server':
         cli_server_color: 'On'
       'Date':

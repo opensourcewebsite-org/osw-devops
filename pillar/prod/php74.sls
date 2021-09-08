@@ -13,7 +13,7 @@ php:
         - php7.4-common
       xml:
         - php7.4-xml
-      
+
     fpm:
       conf: /etc/php/7.4/fpm/php-fpm.conf
       ini: /etc/php/7.4/fpm/php.ini
@@ -121,6 +121,7 @@ php:
         upload_max_filesize: '200M'
         max_execution_time: 360
         max_input_time: 360
+        default_socket_timeout: 360
       'CLI Server':
         cli_server_color: 'On'
       'Date':
