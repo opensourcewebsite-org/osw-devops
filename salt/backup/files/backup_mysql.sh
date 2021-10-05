@@ -2,7 +2,7 @@
 
 ARG=$1
 
-date=`date +%d-%m-%y`
+date=`date +%y-%m-%d`
 dhour=`date +%H`
 MYSQL=/usr/bin/mysql
 DUMP=/usr/bin/mysqldump

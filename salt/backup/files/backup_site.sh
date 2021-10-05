@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BACKUP_DIR="{{backup_dir}}/sites/"`date +%d-%m-%y`
+BACKUP_DIR="{{backup_dir}}/sites/"`date +%y-%m-%d`
 ROTATE="7"
 
 SITES="{{backup_site_list}}"
