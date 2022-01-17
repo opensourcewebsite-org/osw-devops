@@ -1,4 +1,3 @@
-
 packages:
   pkg.installed:
     - pkgs:
