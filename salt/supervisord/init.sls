@@ -1,7 +1,11 @@
 supervisor-pip:
   pkg.latest:
     - pkgs:
+    {% if grains['oscodename'] == 'bionic' %}
       - python-pip
+    {% elif grains['oscodename'] == 'focal' %}
+      - python3-pip
+    {% endif %}
 
 superlance:
   pip.installed:
