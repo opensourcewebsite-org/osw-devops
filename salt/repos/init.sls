@@ -1,6 +1,10 @@
+{% if grains['oscodename'] == 'bionic' %}
+
 certbot-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
     - ppa: certbot/certbot
+
+{% endif %}
 
 deadsnakes-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
@@ -10,9 +14,13 @@ nginx-stable-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
     - ppa: nginx/stable
 
+{% if grains['oscodename'] == 'bionic' %}
+
 olipo186-git-auto-deploy-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
     - ppa: olipo186/git-auto-deploy
+
+{% endif %}
 
 ondrej-php-ubuntu-bionic-pkgrepo:
   pkgrepo.managed:
