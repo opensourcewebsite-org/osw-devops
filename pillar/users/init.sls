@@ -29,7 +29,7 @@ users:
       - {{ sshkey }}
 {% endfor %}
 # Instruction to remove a old user
-#  USERNAME:
-#    absent: True
-#    purge: True
-#    force: True
+  mycelium3:
+    absent: True
+    purge: True
+    force: True
