@@ -3,6 +3,7 @@ supervisor-pip:
     - pkgs:
     {% if grains['oscodename'] == 'bionic' %}
       - python-pip
+      - python3-pip
     {% elif grains['oscodename'] == 'focal' %}
       - python3-pip
     {% endif %}
