@@ -26,7 +26,13 @@ packages:
       - python-apt
       - python-pycurl
       - certbot
+
+      {% if grains['oscodename'] == 'bionic' %}
+
       - python-certbot-nginx
+
+      {% endif %}
+
       - python3-certbot-nginx
       - python3-certbot-dns-cloudflare
       - python3-pygit2
