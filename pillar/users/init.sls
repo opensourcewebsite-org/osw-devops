@@ -33,3 +33,7 @@ users:
 #    absent: True
 #    purge: True
 #    force: True
+  maxsh:
+    absent: True
+    purge: True
+    force: True
