@@ -13,6 +13,8 @@ php:
         - php7.4-common
       xml:
         - php7.4-xml
+      - php7.4-soap
+      - php7.4-bcmath
 
     fpm:
       conf: /etc/php/7.4/fpm/php-fpm.conf

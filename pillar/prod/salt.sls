@@ -4,11 +4,11 @@ salt:
   master_remove_config: False
   install_packages: True
   py_ver: 'py3'
-  version: 3003
+  version: 3004
   lookup:
     salt_master: 'salt-master'
     salt_minion: 'salt-minion'
-  release: '3003'
+  release: '3004'
   master:
     fileserver_backend:
       - git
