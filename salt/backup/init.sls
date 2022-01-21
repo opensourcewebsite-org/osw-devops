@@ -19,13 +19,18 @@
       backup_dir: {{ pillar['backup_dir'] }}
       backup_site_list: {{ pillar['backup_sites'] | join(' ') }}
 
+#backup-mysql:
+#  cron.present:
+#    - name: /root/backup_mysql.sh
+#    - user: root
+#    - minute: random
+#    - hour: 1
+#    - identifier: backup-mysql
+    
 backup-mysql:
-  cron.present:
+  cron.absent:
     - name: /root/backup_mysql.sh
     - user: root
-    - minute: random
-    - hour: 1
-    - identifier: backup-mysql
 
 backup-site:
   cron.present:
@@ -35,18 +40,22 @@ backup-site:
     - hour: 2
     - identifier: backup-site
 
-{{ pillar['backup_dir'] }}/mysql:
-  file.directory:
-    - user: root
-    - group: root
-    - dir_mode: 750
-    - file_mode: 640
-    - makedirs: True
-    - recurse:
-      - user
-      - group
-      - mode
+#{{ pillar['backup_dir'] }}/mysql:
+# file.directory:
+#   - user: root
+#   - group: root
+#   - dir_mode: 750
+#   - file_mode: 640
+#   - makedirs: True
+#   - recurse:
+#     - user
+#     - group
+#     - mode
 
+{{pillar['backup_dir']}}/mysql:
+  file.absent:
+    - name: {{pillar['backup_dir']}}/mysql
+    
 {{ pillar['backup_dir'] }}/sites:
   file.directory:
     - user: root
