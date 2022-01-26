@@ -22,4 +22,4 @@ done
 
 tar czf ${BACKUP_DIR}/configs.tgz -C / `echo ${CONFIGS} | paste`
 
-find ${BACKUP_DIR}/ -maxdepth 1 -type d -ctime +${ROTATE} -exec rm -rf {} \;
+find ${BACKUP_DIR}/ -maxdepth 1 -type d -mtime +${ROTATE} -exec rm -rf {} \;
