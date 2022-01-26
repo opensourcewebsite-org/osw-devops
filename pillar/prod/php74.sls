@@ -11,7 +11,7 @@ php:
       cli:
         - php7.4-cli
         - php7.4-common
-      xml:
+      modules:
         - php7.4-xml
         - php7.4-soap
         - php7.4-bcmath
