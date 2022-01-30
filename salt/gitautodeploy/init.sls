@@ -13,11 +13,6 @@ git-auto-deploy-service:
     - user: git-auto-deploy
     - group: git-auto-deploy
     - mode: 644
-
-users:
-  git-auto-deploy:
-    groups:
-      - opensourcewebsite.org
       
 /www/opensourcewebsite.org/htdocs/:
   file.managed:
