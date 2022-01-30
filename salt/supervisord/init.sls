@@ -40,7 +40,7 @@ include:
 
 chown_log_file:
   file.managed:
-    - name: /www/opensourcewebsite.org/htdocs/runtime/logs/cron-stdout.log
+    - name: /www/opensourcewebsite.org/logs/cron-stdout.log
     - user: opensourcewebsite.org
     - group: opensourcewebsite.org
     - mode: 644
@@ -48,7 +48,7 @@ chown_log_file:
 
 chown_log_file2:
   file.managed:
-    - name: /www/opensourcewebsite.org/htdocs/runtime/logs/cron-stderr.log
+    - name: /www/opensourcewebsite.org/logs/cron-stderr.log
     - user: opensourcewebsite.org
     - group: opensourcewebsite.org
     - mode: 644
