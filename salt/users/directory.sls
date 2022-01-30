@@ -4,7 +4,21 @@
     - user: opensourcewebsite.org
     - group: opensourcewebsite.org
     - makedirs: True
-    
+
+/www/opensourcewebsite.org/htdocs/runtime/:
+  file.directory:
+    - mode: 770
+    - user: opensourcewebsite.org
+    - group: opensourcewebsite.org
+    - makedirs: True
+
+/www/opensourcewebsite.org/htdocs/runtime/logs/:
+  file.directory:
+    - mode: 770
+    - user: opensourcewebsite.org
+    - group: opensourcewebsite.org
+    - makedirs: True
+
 /www/opensourcewebsite.org/logs/:
   file.directory:
     - mode: 770
