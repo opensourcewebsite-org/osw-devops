@@ -15,13 +15,13 @@ git-auto-deploy-service:
     - mode: 644
       
 /www/opensourcewebsite.org/htdocs/:
-  file.managed:
+  file.directory:
     - mode: 775
 
 /www/opensourcewebsite.org/logs/:
-  file.managed:
+  file.directory:
     - mode: 775
 
 /www/opensourcewebsite.org/tmp/:
-  file.managed:
+  file.directory:
     - mode: 775
