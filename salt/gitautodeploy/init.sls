@@ -14,12 +14,12 @@ git-auto-deploy-service:
     - group: git-auto-deploy
     - mode: 644
       
-/www/opensourcewebsite.org/htdocs/:
-  file.directory:
-    - mode: 775
-    - user: opensourcewebsite.org
-    - group: opensourcewebsite.org
-    - makedirs: True
+#/www/opensourcewebsite.org/htdocs/:
+#  file.directory:
+#    - mode: 775
+#    - user: opensourcewebsite.org
+#    - group: opensourcewebsite.org
+#    - makedirs: True
 
 /www/opensourcewebsite.org/logs/:
   file.directory:
