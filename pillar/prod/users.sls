@@ -2,6 +2,9 @@ users:
   www-data:
     groups:
       - opensourcewebsite.org
+  git-auto-deploy:
+    groups:
+      - opensourcewebsite.org
 
   opensourcewebsite.org:
     fullname: opensourcewebsite org
