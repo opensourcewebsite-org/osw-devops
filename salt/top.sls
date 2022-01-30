@@ -13,7 +13,7 @@ base:
     - users.log_acl
     - update_motd_d
     - users.selected_editor
-    - users.htdocs
+    - users.directory
   'opensourcewebsite.org':
     - nginx
     - php.fpm
