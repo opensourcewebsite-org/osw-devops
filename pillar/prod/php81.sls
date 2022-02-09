@@ -17,6 +17,7 @@ php:
         - php8.1-xml
         - php8.1-soap
         - php8.1-bcmath
+        
     fpm:
       conf: /etc/php/8.1/fpm/php-fpm.conf
       ini: /etc/php/8.1/fpm/php.ini
