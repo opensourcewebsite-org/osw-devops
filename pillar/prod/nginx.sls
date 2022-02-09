@@ -198,7 +198,7 @@ nginx:
               - fastcgi_split_path_info:
                 - ^(.+\.php)(/.+)$
               - fastcgi_pass:
-                - unix:/run/php/php7.4-opensourcewebsite.org.sock
+                - unix:/run/php/php{{ php.version }}-opensourcewebsite.org.sock
               - fastcgi_index:
                 - index.php
               - fastcgi_param:
