@@ -13,9 +13,11 @@ php:
       cli:
         - php8.0-cli
         - php8.0-common
-      xml:
+      modules:
         - php8.0-xml
-
+        - php8.0-soap
+        - php8.0-bcmath
+        
     fpm:
       conf: /etc/php/8.0/fpm/php-fpm.conf
       ini: /etc/php/8.0/fpm/php.ini
