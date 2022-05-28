@@ -40,3 +40,4 @@ base:
   'osw-devops-ci':
     # Overrides for Kitchen testing
     - states/setup-certs
+    - states/adjust-auditd-conf-for-container
