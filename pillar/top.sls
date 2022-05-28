@@ -16,3 +16,6 @@ base:
     - prod.logrotate
     - prod.salt
     - prod.exim
+  'osw-devops-ci':
+    # Overrides for Kitchen testing
+    - test.nginx
