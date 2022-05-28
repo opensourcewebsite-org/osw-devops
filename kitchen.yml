@@ -1,0 +1,121 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+# For help on this file's format, see https://kitchen.ci/
+driver:
+  name: docker
+  use_sudo: false
+  privileged: true
+  provision_command:
+    - 'apt-get update && apt-get install -y python3-pygit2'
+    - 'echo "PleaseChangeThisVerySecretPassword12" > /srv/user-passwords.txt'
+  run_command: /usr/lib/systemd/systemd
+
+provisioner:
+  name: salt_solo
+  log_level: debug
+  salt_install: none
+  require_chef: false
+  salt_copy_filter:
+    - .kitchen
+    - .git
+  salt_minion_id: 'osw-devops-ci'
+  state_collection: 'salt'
+  state_top_from_file: true
+  dependencies:
+    - name: 'files'
+      path: './test/salt'
+    - name: 'states'
+      path: './test/salt'
+  pillars_from_directories:
+    - pillar
+    - test/salt/pillar
+  salt_minion_extra_config:
+    fileserver_backend:
+      - roots
+      - gitfs
+    gitfs_remotes:
+      - https://github.com/saltstack-formulas/salt-formula.git
+      - https://github.com/saltstack-formulas/cron-formula.git
+      - https://github.com/saltstack-formulas/nginx-formula.git
+      - https://github.com/saltstack-formulas/php-formula.git
+      - https://github.com/saltstack-formulas/supervisor-formula.git
+      - https://github.com/saltstack-formulas/users-formula.git
+      - https://github.com/saltstack-formulas/logrotate-formula.git
+
+platforms:
+  ## SALT `tiamat`
+  - name: ubuntu-2204-tiamat-py3
+    driver:
+      image: saltimages/salt-tiamat-py3:ubuntu-22.04
+      run_command: /lib/systemd/systemd
+  - name: ubuntu-2004-tiamat-py3
+    driver:
+      image: saltimages/salt-tiamat-py3:ubuntu-20.04
+      run_command: /lib/systemd/systemd
+  - name: ubuntu-1804-tiamat-py3
+    driver:
+      image: saltimages/salt-tiamat-py3:ubuntu-18.04
+      run_command: /lib/systemd/systemd
+
+  ## SALT `master`
+  - name: ubuntu-2204-master-py3
+    driver:
+      image: saltimages/salt-master-py3:ubuntu-22.04
+      run_command: /lib/systemd/systemd
+  - name: ubuntu-2004-master-py3
+    driver:
+      image: saltimages/salt-master-py3:ubuntu-20.04
+      run_command: /lib/systemd/systemd
+  - name: ubuntu-1804-master-py3
+    driver:
+      image: saltimages/salt-master-py3:ubuntu-18.04
+      run_command: /lib/systemd/systemd
+
+  ## SALT `3004.1`
+  - name: ubuntu-2204-3004-1-py3
+    driver:
+      image: saltimages/salt-3004.1-py3:ubuntu-22.04
+      run_command: /lib/systemd/systemd
+  - name: ubuntu-2004-3004-1-py3
+    driver:
+      image: saltimages/salt-3004.1-py3:ubuntu-20.04
+      run_command: /lib/systemd/systemd
+  - name: ubuntu-1804-3004-1-py3
+    driver:
+      image: saltimages/salt-3004.1-py3:ubuntu-18.04
+      run_command: /lib/systemd/systemd
+
+  ## SALT `3003.4`
+  - name: ubuntu-2004-3003-4-py3
+    driver:
+      image: saltimages/salt-3003.4-py3:ubuntu-20.04
+      run_command: /lib/systemd/systemd
+  - name: ubuntu-1804-3003-4-py3
+    driver:
+      image: saltimages/salt-3003.4-py3:ubuntu-18.04
+      run_command: /lib/systemd/systemd
+
+  ## SALT `3002.8`
+  - name: ubuntu-2004-3002-8-py3
+    driver:
+      image: saltimages/salt-3002.8-py3:ubuntu-20.04
+      run_command: /lib/systemd/systemd
+  - name: ubuntu-1804-3002-8-py3
+    driver:
+      image: saltimages/salt-3002.8-py3:ubuntu-18.04
+      run_command: /lib/systemd/systemd
+
+verifier:
+  # https://www.inspec.io/
+  name: inspec
+  sudo: true
+  reporter:
+    # cli, documentation, html, progress, json, json-min, json-rspec, junit
+    - cli
+
+suites:
+  - name: default
+    verifier:
+      inspec_tests:
+        - path: test/integration/default

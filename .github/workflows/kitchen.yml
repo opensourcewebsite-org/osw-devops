@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+name: 'Kitchen (Linux)'
+'on': ['push', 'pull_request']
+
+jobs:
+  kitchen:
+    runs-on: 'ubuntu-20.04'
+    strategy:
+      fail-fast: false
+      matrix:
+        instance:
+          # - default-ubuntu-2204-tiamat-py3
+          # - default-ubuntu-2004-tiamat-py3
+          # - default-ubuntu-1804-tiamat-py3
+          # - default-ubuntu-2204-master-py3
+          # - default-ubuntu-2004-master-py3
+          - default-ubuntu-1804-master-py3
+          # - default-ubuntu-2204-3004-1-py3
+          # - default-ubuntu-2004-3004-1-py3
+          - default-ubuntu-1804-3004-1-py3
+          # - default-ubuntu-2004-3003-4-py3
+          - default-ubuntu-1804-3003-4-py3
+          # - default-ubuntu-2004-3002-8-py3
+          - default-ubuntu-1804-3002-8-py3
+    steps:
+      - name: 'Check out code'
+        uses: 'actions/checkout@v2'
+      - name: 'Set up Bundler cache'
+        uses: 'actions/cache@v1'
+        with:
+          path: 'vendor/bundle'
+          key: "${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}"
+          restore-keys: "${{ runner.os }}-gems-"
+      - name: 'Install Bundler'
+        run: |
+          sudo gem install bundler \
+            -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)" \
+            --quiet --no-document
+      - name: 'Run Bundler'
+        run: |
+          ruby --version
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: 'Run Test Kitchen'
+        run: 'bundle exec kitchen verify ${{ matrix.instance }}'
+        env:
+          CHEF_LICENSE: 'accept-no-persist'
