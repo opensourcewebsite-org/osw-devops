@@ -37,3 +37,6 @@ base:
     - salt.formulas
     - exim
     # - salt.minion
+  'osw-devops-ci':
+    # Overrides for Kitchen testing
+    - states/setup-certs
