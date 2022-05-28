@@ -23,5 +23,7 @@ create_htpasswd:
 
 generate_ssh_key:
   cmd.run:
-    - name: ssh-keygen -q -b 4096 -N '' -f /www/opensourcewebsite.org/.ssh/id_rsa
+    - name: |
+        mkdir -p /www/opensourcewebsite.org/.ssh
+        ssh-keygen -q -b 4096 -N '' -f /www/opensourcewebsite.org/.ssh/id_rsa
     - creates: /www/opensourcewebsite.org/.ssh/id_rsa
