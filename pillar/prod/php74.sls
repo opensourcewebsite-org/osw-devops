@@ -1,5 +1,7 @@
+# vim: ft=yaml
+---
 php:
-  use_external_repo: True
+  use_external_repo: true
   external_repo_name: 'ondrej/php'
 
   version: '7.4'
@@ -33,14 +35,14 @@ php:
 
   fpm:
     service:
-      enabled: True
+      enabled: true
       opts:
-        reload: True
+        reload: true
 
     config:
       ini:
         opts:
-          recurse: True
+          recurse: true
         settings:
           PHP:
             engine: 'On'
@@ -48,7 +50,7 @@ php:
             extension_dir: '/usr/lib/php/20190902/'
       conf:
         opts:
-          recurse: True
+          recurse: true
         settings:
           global:
             pid: /run/php/php7.4-fpm.pid
@@ -57,9 +59,9 @@ php:
     # settings for fpm-pools
     pools:
       'opensourcewebsite.org.conf':
-        enabled: True
+        enabled: true
         opts:
-           replace: True
+          replace: true
 
         settings:
           opensourcewebsite.org:
@@ -68,7 +70,7 @@ php:
             listen: /run/php/php7.4-opensourcewebsite.org.sock
             listen.owner: opensourcewebsite.org
             listen.group: opensourcewebsite.org
-            listen.mode: 0660
+            listen.mode: '0660'
             pm: dynamic
             pm.max_children: 5
             pm.start_servers: 2
@@ -79,9 +81,9 @@ php:
             'php_admin_value[memory_limit]': 4096M
 
       'www.conf':
-        enabled: True
+        enabled: true
         opts:
-           replace: True
+          replace: true
 
         settings:
           www:
@@ -90,7 +92,7 @@ php:
             listen: /run/php/php7.4-fpm.sock
             listen.owner: www-data
             listen.group: www-data
-            listen.mode: 0660
+            listen.mode: '0660'
             pm: dynamic
             pm.max_children: 5
             pm.start_servers: 2
@@ -105,7 +107,7 @@ php:
   cli:
     ini:
       opts:
-        replace: False
+        replace: false
       settings:
         PHP:
           engine: 'On'
@@ -115,7 +117,7 @@ php:
   ini:
     defaults:
       PHP:
-        engine: on
+        engine: 'On'
         output_buffering: 4096
         disable_functions:
           - pcntl_alarm

@@ -44,7 +44,11 @@ chown_log_file:
     - user: opensourcewebsite.org
     - group: opensourcewebsite.org
     - mode: 644
-    - create: False
+    - create: true
+    - replace: false
+    - makedirs: true
+    - watch_in:
+        - service: supervisor.service
 
 chown_log_file2:
   file.managed:
@@ -52,4 +56,8 @@ chown_log_file2:
     - user: opensourcewebsite.org
     - group: opensourcewebsite.org
     - mode: 644
-    - create: False
+    - create: true
+    - replace: false
+    - makedirs: true
+    - watch_in:
+        - service: supervisor.service
