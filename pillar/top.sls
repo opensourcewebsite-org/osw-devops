@@ -1,3 +1,5 @@
+# vim: ft=yaml
+---
 # Pillar definitions
 # WARNING: DO NOT CHANGE THE ORDER
 # We are using pillar overwrites!
