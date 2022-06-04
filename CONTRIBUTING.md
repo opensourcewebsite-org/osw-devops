@@ -30,6 +30,18 @@ When contributing to this repository, please first discuss the change you wish t
   - Make the tests pass.
 - Create a [pull request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to the repository.
 
+### pre-commit
+
+[pre-commit](https://pre-commit.com/) is configured for this repo, which you may optionally use to ease the steps involved in submitting your changes.
+First install the `pre-commit` package manager using the appropriate [method](https://pre-commit.com/#installation),
+then run `bin/install-hooks` and now `pre-commit` will run automatically on each `git commit`:
+
+```console
+$ bin/install-hooks
+pre-commit installed at .git/hooks/pre-commit
+pre-commit installed at .git/hooks/commit-msg
+```
+
 ### Tips and tricks for using the Git
 
 - [GitHub Cheat Sheet](https://github.com/tiimgreen/github-cheat-sheet)

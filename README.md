@@ -1,5 +1,7 @@
 <h1 align="center">OpenSourceWebsite DevOps</h1>
 
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+
 Server Architecture for OpenSourceWebsite, using [SaltStack](https://www.saltstack.com).
 
 The repository is a part of the [OpenSourceWebsite Organization](https://github.com/opensourcewebsite-org). This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md).
