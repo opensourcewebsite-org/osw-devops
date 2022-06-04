@@ -4,7 +4,7 @@ auto-update:
     - mode: replace
     - content: 'APT::Periodic::Update-Package-Lists "0";'
     - match: 'APT::Periodic::Update-Package-Lists "1";'
-    
+
 auto-upgrade:
   file.line:
     - name: /etc/apt/apt.conf.d/20auto-upgrades

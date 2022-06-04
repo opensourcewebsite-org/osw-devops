@@ -10,12 +10,12 @@
 {{ auditd.config }}:
   file.managed:
     - source: {{ auditd.config_source }}
-    - mode: 0600
+    - mode: '0600'
 
 {{ auditd.systemd_unit }}:
   file.managed:
     - source: {{ auditd.systemd_unit_source }}
-    - mode: 0600
+    - mode: '0600'
   module.run:
     - name: service.systemctl_reload
     - onchanges:

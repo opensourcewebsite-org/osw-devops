@@ -11,11 +11,11 @@ docker_pkgs:
 docker-pkg:
   pkgrepo.managed:
     - humanname: Docker CE Repository
-    - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{lsb_release}} stable
+    - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release }} stable
     - file: /etc/apt/sources.list.d/docker.list
     - key_url: https://download.docker.com/linux/ubuntu/gpg
   pkg.installed:
-    - fromrepo: {{lsb_release}}
+    - fromrepo: {{ lsb_release }}
     - name: docker-ce
     - refresh: True
 
