@@ -1,3 +1,4 @@
+{%- if grains['oscodename'] == 'bionic' %}
 git-auto-deploy-pkg:
   pkg.latest:
     - name: git-auto-deploy
@@ -13,3 +14,4 @@ git-auto-deploy-service:
     - user: git-auto-deploy
     - group: git-auto-deploy
     - mode: 644
+{%- endif %}

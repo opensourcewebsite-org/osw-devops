@@ -17,6 +17,10 @@ end
 control 'osw services (disabled)' do
   title 'The services should be installed, but not enabled nor running'
 
+  only_if('`git-auto-deploy` only installed on `18.04`') do
+    %w[18.04].include?(platform[:release])
+  end
+
   services = %w[git-auto-deploy]
 
   services.each do |s|
