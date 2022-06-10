@@ -1,3 +1,5 @@
+# vim: ft=yaml
+---
 logrotate:
   # default OS values can be overridden in 'lookup' dict
   # lookup:

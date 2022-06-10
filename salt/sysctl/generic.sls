@@ -17,4 +17,3 @@ net.ipv6.conf.lo.disable_ipv6:
 vm.swappiness:
   sysctl.present:
     - value: 0
-

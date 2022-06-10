@@ -1,8 +1,10 @@
+# vim: ft=yaml
+---
 salt:
-  clean_config_d_dir: True
-  minion_remove_config: True
-  master_remove_config: False
-  install_packages: True
+  clean_config_d_dir: true
+  minion_remove_config: true
+  master_remove_config: false
+  install_packages: true
   py_ver: 'py3'
   version: 3004
   lookup:

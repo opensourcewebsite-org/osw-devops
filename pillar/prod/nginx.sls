@@ -1,11 +1,13 @@
+# vim: ft=yaml
+---
 nginx:
-#  pkg:
-#  - installed
-#  service:
-#  - running
-#  - reload: True
-#  - require:
-#  - pkg: nginx
+  # pkg:
+  # - installed
+  # service:
+  # - running
+  # - reload: True
+  # - require:
+  # - pkg: nginx
   install_from_ppa: true
   ppa_version: 'stable'
 
@@ -44,8 +46,8 @@ nginx:
         client_header_buffer_size: '1k'
         client_max_body_size: '40m'
         large_client_header_buffers: '2 1k'
-#        client_max_body_size: '128m'
-#        client_body_buffer_size: '128m'
+        # client_max_body_size: '128m'
+        # client_body_buffer_size: '128m'
 
         client_body_timeout: 12
         client_header_timeout: 12
@@ -55,7 +57,18 @@ nginx:
         gzip: 'on'
         gzip_vary: 'on'
         gzip_disable: 'msie6'
-        gzip_types: 'text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript image/svg+xml image/jpeg'
+        gzip_types: >-
+          text/plain
+          text/css
+          application/json
+          application/x-javascript
+          text/xml
+          application/xml
+          application/xml+rss
+          text/javascript
+          application/javascript
+          image/svg+xml
+          image/jpeg
         gzip_comp_level: 5
         gzip_min_length: 800
         gzip_proxied: 'any'
@@ -64,7 +77,7 @@ nginx:
         proxy_connect_timeout: 7777
 
         access_log: 'off'
-#        access_log: '/var/log/nginx/access.log'
+        # access_log: '/var/log/nginx/access.log'
         error_log: '/var/log/nginx/error.log'
 
         fastcgi_buffers: '8 16k'
@@ -77,6 +90,7 @@ nginx:
 
         ssl_protocols: 'TLSv1.2 TLSv1.3'
         ssl_prefer_server_ciphers: 'on'
+        # yamllint disable-line rule:line-length
         ssl_ciphers: 'TLS-CHACHA20-POLY1305-SHA256:TLS-AES-256-GCM-SHA384:TLS-AES-128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK'
         ssl_session_timeout: '4h'
         ssl_session_cache: 'shared:SSL:40m'
@@ -90,121 +104,121 @@ nginx:
           - /etc/nginx/mime.types
           - /etc/nginx/conf.d/*.conf
           - /etc/nginx/sites-enabled/*
-      #   - cloudflare
+          # - cloudflare
 
   servers:
     managed:
 
       supervisor:
-        enabled: True
+        enabled: true
         available_dir: /etc/nginx/sites-available
         enabled_dir: /etc/nginx/sites-enabled
-        overwrite: True
+        overwrite: true
         config:
           - server:
-            - server_name: _
-            - listen:
-              - 9001 ssl
-            - access_log:
-              - 'off'
-            - error_log:
-              - /var/log/nginx/error.log
-            - ssl_certificate:
-              - /etc/nginx/nginx.pem
-            - ssl_certificate_key:
-              - /etc/nginx/nginx.pem
-            - auth_basic:
-              - "\u0022closed site\u0022"
-            - auth_basic_user_file:
-              - htpasswd
-            - location /:
-              - proxy_pass:
-                - "http://127.0.0.1:9002"
-              - proxy_set_header:
-                - Host $host:$server_port
-              - proxy_set_header:
-                - X-Forwaded-For $proxy_add_x_forwarded_for
-              - proxy_redirect:
-                - http:// https://
+              - server_name: _
+              - listen:
+                  - 9001 ssl
+              - access_log:
+                  - 'off'
+              - error_log:
+                  - /var/log/nginx/error.log
+              - ssl_certificate:
+                  - /etc/nginx/nginx.pem
+              - ssl_certificate_key:
+                  - /etc/nginx/nginx.pem
+              - auth_basic:
+                  - "\u0022closed site\u0022"
+              - auth_basic_user_file:
+                  - htpasswd
+              - location /:
+                  - proxy_pass:
+                      - "http://127.0.0.1:9002"
+                  - proxy_set_header:
+                      - Host $host:$server_port
+                  - proxy_set_header:
+                      - X-Forwaded-For $proxy_add_x_forwarded_for
+                  - proxy_redirect:
+                      - http:// https://
 
       opensourcewebsite.org:
-        enabled: True
+        enabled: true
         available_dir: /etc/nginx/sites-available
         enabled_dir: /etc/nginx/sites-enabled
-        overwrite: True
+        overwrite: true
         config:
           - server:
-            - server_name: opensourcewebsite.org
-            - listen:
-              - 80
-            - root:
-              - /www/opensourcewebsite.org/htdocs/web
-            - index:
-              - index.php
-            - location ^~ /.well-known/:
-              - default_type:
-                - "text/plain"
-            - location = /.well-known/:
-              - return:
-                - 404
-            - location /:
-              - return:
-                - 301 https://$server_name$request_uri
+              - server_name: opensourcewebsite.org
+              - listen:
+                  - 80
+              - root:
+                  - /www/opensourcewebsite.org/htdocs/web
+              - index:
+                  - index.php
+              - location ^~ /.well-known/:
+                  - default_type:
+                      - "text/plain"
+              - location = /.well-known/:
+                  - return:
+                      - 404
+              - location /:
+                  - return:
+                      - 301 https://$server_name$request_uri
 
           - server:
-            - server_name: opensourcewebsite.org
-            - listen:
-              - 443 ssl http2
-            - root:
-              - /www/opensourcewebsite.org/htdocs/web
-            - index:
-              - index.php
-            - ssl_certificate:
-              - /etc/letsencrypt/live/opensourcewebsite.org/fullchain.pem
-            - ssl_certificate_key:
-              - /etc/letsencrypt/live/opensourcewebsite.org/privkey.pem
-            - ssl_stapling:
-              - 'on'
-            - ssl_stapling_verify:
-              - 'on'
-            - access_log:
-              - 'off'
-            - proxy_intercept_errors:
-              - 'on'
-            - fastcgi_intercept_errors:
-              - 'on'
-            - location = /.well-known/stellar.toml:
-              - add_header:
-                - "'Access-Control-Allow-Origin' '*'"
-              - default_type:
-                - "text/plain"
-            - location ^~ /.well-known/:
-              - default_type:
-                - "text/plain"
-            - location = /.well-known/:
-              - return:
-                - 404
-            - location ~ /\.:
-              - deny:
-                - all
-              - log_not_found:
-                - 'off'
-            - location /:
-              - try_files:
-                - $uri $uri/ /index.php?$args
-            - location ~ \.php$:
-              - try_files:
-                - $uri =404
-              - fastcgi_split_path_info:
-                - ^(.+\.php)(/.+)$
-              - fastcgi_pass:
-                - unix:/run/php/php7.4-opensourcewebsite.org.sock
-              - fastcgi_index:
-                - index.php
-              - fastcgi_param:
-                - SCRIPT_FILENAME $document_root$fastcgi_script_name
-              - include:
-                - fastcgi_params
+              - server_name: opensourcewebsite.org
+              - listen:
+                  - 443 ssl http2
+              - root:
+                  - /www/opensourcewebsite.org/htdocs/web
+              - index:
+                  - index.php
+              - ssl_certificate:
+                  - /etc/letsencrypt/live/opensourcewebsite.org/fullchain.pem
+              - ssl_certificate_key:
+                  - /etc/letsencrypt/live/opensourcewebsite.org/privkey.pem
+              - ssl_stapling:
+                  - 'on'
+              - ssl_stapling_verify:
+                  - 'on'
+              - access_log:
+                  - 'off'
+              - proxy_intercept_errors:
+                  - 'on'
+              - fastcgi_intercept_errors:
+                  - 'on'
+              - location = /.well-known/stellar.toml:
+                  - add_header:
+                      - "'Access-Control-Allow-Origin' '*'"
+                  - default_type:
+                      - "text/plain"
+              - location ^~ /.well-known/:
+                  - default_type:
+                      - "text/plain"
+              - location = /.well-known/:
+                  - return:
+                      - 404
+              - location ~ /\.:
+                  - deny:
+                      - all
+                  - log_not_found:
+                      - 'off'
+              - location /:
+                  - try_files:
+                      - $uri $uri/ /index.php?$args
+              - location ~ \.php$:
+                  - try_files:
+                      - $uri =404
+                  - fastcgi_split_path_info:
+                      - ^(.+\.php)(/.+)$
+                  - fastcgi_pass:
+                      - unix:/run/php/php7.4-opensourcewebsite.org.sock
+                  - fastcgi_index:
+                      - index.php
+                  - fastcgi_param:
+                      - SCRIPT_FILENAME $document_root$fastcgi_script_name
+                  - include:
+                      - fastcgi_params
 
   certificates_path: '/etc/nginx/ssl'
   dh_param:

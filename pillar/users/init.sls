@@ -1,3 +1,5 @@
+# vim: ft=yaml
+---
 {% import_text '/srv/user-passwords.txt' as hash %}
 {% import_yaml 'users/users.yml' as users %}
 # Instruction to add a new user
@@ -6,18 +8,18 @@
 # Rename user-passwords.txt.dist to user-passwords.txt and put /srv/user-passwords.txt
 # Put your hash password in file user-passwords.txt
 users:
-{% for username, sshkey in users.items() %}
+  {% for username, sshkey in users.items() %}
   {{ username }}:
     password: {{ hash }}
-    enforce_password: True
+    enforce_password: true
     home: /home/{{ username }}
     homedir_owner: {{ username }}
     homedir_group: {{ username }}
     user_dir_mode: 700
-    manage_profile: False
-    createhome: True
+    manage_profile: false
+    createhome: true
     expire: -1
-    sudouser: True
+    sudouser: true
     sudo_rules:
       - ALL=(root) PASSWD:ALL
     sudo_defaults:
@@ -27,13 +29,13 @@ users:
       name: {{ username }}
     ssh_auth:
       - {{ sshkey }}
-{% endfor %}
-# Instruction to remove a old user
-#  USERNAME:
-#    absent: True
-#    purge: True
-#    force: True
+  {% endfor %}
+  # Instruction to remove a old user
+  # USERNAME:
+  #   absent: true
+  #   purge: true
+  #   force: true
   maxsh:
-    absent: True
-    purge: True
-    force: True
+    absent: true
+    purge: true
+    force: true

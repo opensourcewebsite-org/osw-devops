@@ -1,3 +1,5 @@
+# vim: ft=yaml
+---
 backup_dir: '/backup'
 backup_sites:
   - opensourcewebsite.org

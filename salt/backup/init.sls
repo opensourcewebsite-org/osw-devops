@@ -6,7 +6,7 @@
     - mode: 700
     - template: jinja
     - context:
-      backup_dir: {{pillar['backup_dir']}}
+      backup_dir: {{ pillar['backup_dir'] }}
 
 /root/backup_site.sh:
   file.managed:
@@ -16,9 +16,9 @@
     - mode: 700
     - template: jinja
     - context:
-      backup_dir: {{pillar['backup_dir']}}
-      backup_site_list: {{pillar['backup_sites'] | join(' ') }}
-      backup_config_list: {{pillar['backup_configs'] | join(' ')}}
+      backup_dir: {{ pillar['backup_dir'] }}
+      backup_site_list: {{ pillar['backup_sites'] | join(' ') }}
+      backup_config_list: {{ pillar['backup_configs'] | join(' ') }}
 
 backup-mysql:
   cron.present:
@@ -36,7 +36,7 @@ backup-site:
     - hour: 2
     - identifier: backup-site
 
-{{pillar['backup_dir']}}/mysql:
+{{ pillar['backup_dir'] }}/mysql:
   file.directory:
     - user: root
     - group: root
@@ -48,7 +48,7 @@ backup-site:
       - group
       - mode
 
-{{pillar['backup_dir']}}/sites:
+{{ pillar['backup_dir'] }}/sites:
   file.directory:
     - user: root
     - group: root
