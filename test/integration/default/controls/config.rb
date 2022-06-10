@@ -3,9 +3,19 @@
 control 'osw files' do
   title 'Verify the configuration files'
 
+  files =
+    case platform[:release]
+    when '18.04'
+      # rubocop:disable Layout/SpaceInsideArrayPercentLiteral,Layout/LineLength,Style/TrailingCommaInArrayLiteral
+      [%w[/etc/git-auto-deploy-opensourcewebsite.org.conf.json             git-auto-deploy       git-auto-deploy       0644],]
+      # rubocop:enable Layout/SpaceInsideArrayPercentLiteral,Layout/LineLength,Style/TrailingCommaInArrayLiteral
+    else
+      []
+    end
+
   # rubocop:disable Layout/SpaceInsideArrayPercentLiteral,Layout/LineLength,Style/TrailingCommaInArrayLiteral
   #    FILENAME                                                         OWNER                 GROUP                 MODE
-  files = [
+  files += [
     %w[/etc/tmux.conf                                                   root                  root                  0644],
     %w[/etc/audit/rules.d/cis.rules                                     root                  root                  0600],
     %w[/etc/systemd/system/auditd.service                               root                  root                  0600],
@@ -27,7 +37,6 @@ control 'osw files' do
     %w[/etc/php/7.4/fpm/pool.d/opensourcewebsite.org.conf               root                  root                  0644],
     %w[/etc/php/7.4/fpm/pool.d/www.conf                                 root                  root                  0644],
     %w[/etc/php/7.4/cli/php.ini                                         root                  root                  0644],
-    %w[/etc/git-auto-deploy-opensourcewebsite.org.conf.json             git-auto-deploy       git-auto-deploy       0644],
     %w[/etc/supervisor/supervisord.conf                                 root                  root                  0644],
     %w[/etc/supervisor/conf.d/opensourcewebsite-gitautodeploy-8005.conf root                  root                  0644],
     %w[/etc/supervisor/conf.d/opensourcewebsite-cron.conf               root                  root                  0644],
