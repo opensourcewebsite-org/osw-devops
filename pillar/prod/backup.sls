@@ -5,7 +5,8 @@ backup_sites:
   - opensourcewebsite.org
 backup_exclude_from_sites:
   - "runtime/*"
-  - "web/attachments/*"
+  - "vendor/*"
+  - "web/assets/*"
 backup_configs:
   - etc/nginx
   - etc/php

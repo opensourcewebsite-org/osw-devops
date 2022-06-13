@@ -139,11 +139,9 @@ docs/*.md
 /.idea/
 Dockerfile.*_*
 ignore/
-tmp/
 
 # `salt-formula` -- Vagrant Specific files
 .vagrant
-top.sls
 !test/salt/pillar/top.sls
 
 # `suricata-formula` -- Platform binaries
