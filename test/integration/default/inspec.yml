@@ -3,8 +3,8 @@
 ---
 name: default
 title: osw-devops
-maintainer: OpenSourceWebsite
-license: Apache-2.0
+maintainer: OpenSourceWebsite.org
+license: MIT
 # yamllint disable-line rule:line-length
 summary: Verify that the osw-devops formula is setup and configured correctly
 supports:

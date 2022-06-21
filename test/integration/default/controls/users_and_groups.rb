@@ -3,8 +3,8 @@
 control 'osw users' do
   title 'The required groups and users should be created'
 
-  groups = %w[opensourcewebsite.org grandmotivator mycelium]
-  users = %w[opensourcewebsite.org grandmotivator mycelium]
+  groups = %w[opensourcewebsite.org]
+  users = %w[opensourcewebsite.org]
 
   groups.each do |g|
     describe group(g) do

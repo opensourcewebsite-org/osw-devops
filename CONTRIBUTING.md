@@ -49,6 +49,6 @@ pre-commit installed at .git/hooks/commit-msg
 
 ### Key branches
 
-- `master` is the latest, deployed version
+- `master` is the latest, deployed version.
 
 ## Contribute to the core code or bug fixes

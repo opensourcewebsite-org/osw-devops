@@ -32,7 +32,7 @@ yaml-files:
   # SaltStack Formulas additional settings
   - '*.example'
   - test/**/*.sls
-  # `osw` additional settings
+  # Additional settings
   - '*.sls'
 
 rules:
