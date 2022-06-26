@@ -96,4 +96,5 @@ openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ng
 
 # Copy a file with user-passwords
 wget -L https://raw.githubusercontent.com/opensourcewebsite-org/osw-devops/master/pillar/users/user-passwords.txt.dist
+wget -L https://raw.githubusercontent.com/opensourcewebsite-org/osw-devops/master/mail-testert.sh
 mv user-passwords.txt.dist /srv/user-passwords.txt

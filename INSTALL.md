@@ -8,3 +8,4 @@ Please read through our [Contributing Guidelines](CONTRIBUTING.md).
 - Run `sudo sh install.sh` to install initial environment
 - Put user password's hash in '/srv/users-passwords.txt'
 - Run `sudo salt '*' state.apply --state-verbose=false`
+- Check email sending: `bash mail-testert.sh user@domain.tld`
