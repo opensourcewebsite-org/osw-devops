@@ -21,3 +21,4 @@ base:
   'osw-devops-ci':
     # Overrides for Kitchen testing
     - test.nginx
+    - test.supervisor
