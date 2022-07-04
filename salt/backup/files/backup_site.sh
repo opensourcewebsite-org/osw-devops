@@ -9,8 +9,7 @@ SITE_DIR="www"
 CONFIGS="{{backup_config_list}}"
 
 function create_backup {
-  nice -n 19 ionice -c3 tar cfz ${BACKUP_DIR}/${1}.tgz -C / ${SITE_DIR}/${1}/htdocs
-  {%- for exclude in pillar['backup_exclude_from_sites'] -%}{{' '}}--exclude="{{exclude}}"{% endfor %}
+  nice -n 19 ionice -c3 tar {%- for exclude in pillar['backup_exclude_from_sites'] -%}{{' '}}--exclude="{{exclude}}"{% endfor %} -cfz ${BACKUP_DIR}/${1}.tgz -C / ${SITE_DIR}/${1}/htdocs
 }
 
 mkdir -p ${BACKUP_DIR}

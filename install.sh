@@ -1,13 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+UBUNTU_VERSION=$(fgrep VERSION_ID /etc/os-release | cut -d\" -f2)
+UBUNTU_CODENAME=$(fgrep VERSION_CODENAME /etc/os-release | cut -d= -f2)
+
+wget -qO- "https://repo.saltstack.com/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest/SALTSTACK-GPG-KEY.pub" | apt-key add -
+
+cat <<EOF > /etc/apt/sources.list.d/saltstack.list
+deb http://repo.saltstack.com/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest ${UBUNTU_CODENAME} main
+EOF
+
 apt-get update -y
 apt-get dist-upgrade -y
-wget -O - https://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
-cat <<EOF > /etc/apt/sources.list.d/saltstack.list
-deb http://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest bionic main
-EOF
-apt-get update -y
-apt-get install salt-master -y
-apt-get install salt-minion -y
+apt-get install salt-master salt-minion -y
+
 cat <<EOF > /etc/salt/master
 file_roots:
   base:
@@ -67,15 +74,21 @@ gitfs_update_interval:
   80
 
 EOF
+
 systemctl restart salt-master
+
 cat <<EOF > /etc/salt/minion_id
 opensourcewebsite.org
 EOF
+
 cat <<EOF >> /etc/salt/minion
 master: 127.0.0.1
 EOF
+
 systemctl restart salt-minion
+
 sleep 60
+
 salt-key -a opensourcewebsite.org -y
 
 # Swap
@@ -83,18 +96,17 @@ fallocate -l 4G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
-echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
+echo '/swapfile none swap sw 0 0' >> /etc/fstab
 sysctl vm.swappiness=0
 
 # Certifications for nginx
-mkdir /etc/letsencrypt
-mkdir /etc/letsencrypt/live
-mkdir /etc/letsencrypt/live/opensourcewebsite.org
+mkdir -p /etc/letsencrypt/live/opensourcewebsite.org
 mkdir /etc/nginx
 openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/letsencrypt/live/opensourcewebsite.org/privkey.pem -out /etc/letsencrypt/live/opensourcewebsite.org/fullchain.pem
 openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/nginx.pem -out /etc/nginx/nginx.pem
 
 # Copy a file with user-passwords
-wget -L https://raw.githubusercontent.com/opensourcewebsite-org/osw-devops/master/pillar/users/user-passwords.txt.dist
-wget -L https://raw.githubusercontent.com/opensourcewebsite-org/osw-devops/master/mail-testert.sh
-mv user-passwords.txt.dist /srv/user-passwords.txt
+wget https://raw.githubusercontent.com/opensourcewebsite-org/osw-devops/master/pillar/users/user-passwords.txt.dist -O /srv/user-passwords.txt
+
+# Copy email test script
+wget https://raw.githubusercontent.com/opensourcewebsite-org/osw-devops/master/mail-testert.sh
