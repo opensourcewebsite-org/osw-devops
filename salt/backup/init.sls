@@ -18,7 +18,6 @@
     - context:
       backup_dir: {{ pillar['backup_dir'] }}
       backup_site_list: {{ pillar['backup_sites'] | join(' ') }}
-      backup_config_list: {{ pillar['backup_configs'] | join(' ') }}
 
 backup-mysql:
   cron.present:
