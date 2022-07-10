@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
+# https://yamllint.readthedocs.io/en/stable/configuration.html
 ---
 # Extend the `default` configuration provided by `yamllint`
 extends: 'default'
@@ -46,3 +47,5 @@ rules:
   octal-values:
     forbid-implicit-octal: true
     forbid-explicit-octal: true
+  comments: disable
+  comments-indentation: disable

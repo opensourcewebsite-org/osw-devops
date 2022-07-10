@@ -37,13 +37,11 @@ salt:
       - https://github.com/saltstack-formulas/logrotate-formula.git:
           - base: master
       - https://github.com/opensourcewebsite-org/osw-devops.git:
-          # - privkey: /root/.ssh/id_rsa
-          # - pubkey: /root/.ssh/id_rsa.pub
           - root: salt
           - base: master
     top_file_merging_strategy: merge
-    # winrepo_provider: gitpython
-    # gitfs_provider: gitpython
+    gitfs_provider: gitpython
+    git_pillar_provider: gitpython
     gitfs_saltenv_whitelist: base
     git_pillar_env: base
     git_pillar_root: pillar
@@ -51,10 +49,8 @@ salt:
     roots_update_interval: 63072000
     ext_pillar:
       - git:
-          - https://github.com/opensourcewebsite-org/osw-devops.git:
+          - master https://github.com/opensourcewebsite-org/osw-devops.git:
               - root: pillar
-              # - privkey: /root/.ssh/id_rsa
-              # - pubkey: /root/.ssh/id_rsa.pub
   minion:
     master: 127.0.0.1
 #    schedule:
