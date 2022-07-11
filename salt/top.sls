@@ -8,6 +8,7 @@ base:
     - tmux
     - auditd
     - rsyslog
+    - sudoers
     - sysctl
     - users.log_acl
     - update_motd_d
