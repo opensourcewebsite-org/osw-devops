@@ -44,7 +44,6 @@ control 'osw files' do
     %w[/etc/supervisor/conf.d/_fatal-mail-batch.conf                    root                  root                  0644],
     %w[/www/opensourcewebsite.org/htdocs/runtime/logs/cron-stdout.log   opensourcewebsite.org opensourcewebsite.org 0644],
     %w[/www/opensourcewebsite.org/htdocs/runtime/logs/cron-stderr.log   opensourcewebsite.org opensourcewebsite.org 0644],
-    %w[/www/opensourcewebsite.org/.config/composer/composer.json        opensourcewebsite.org opensourcewebsite.org 0644],
     %w[/root/backup_mysql.sh                                            root                  root                  0700],
     %w[/root/backup_site.sh                                             root                  root                  0700],
     %w[/etc/logrotate.conf                                              root                  root                  0644],
