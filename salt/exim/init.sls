@@ -28,7 +28,8 @@ exim4_service:
   service.running:
     - name: exim4
     - enable: True
-
+    - watch:
+      - file: /etc/exim4/*
 
 create_dir_dkim:
   file.directory:
@@ -80,7 +81,3 @@ exim4_config_localmail:
     - mode: replace
     - content: 'domainlist local_domains = localhost : localhost.localdomain'
     - match: 'domainlist local_domains = MAIN_LOCAL_DOMAINS'
-
-restart_exim:
-  cmd.run:
-    - name: service exim4 restart
