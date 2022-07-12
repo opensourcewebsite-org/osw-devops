@@ -44,12 +44,14 @@ create_dir_dkim:
 generate_private_cert:
   cmd.run:
     - name: openssl genrsa -out {{ pillar['dkim_private_key'] }} 1024
+    - runas: Debian-exim
     - cwd: /etc/exim4/dkim/
     - creates: /etc/exim4/dkim/{{ pillar['dkim_private_key'] }}
 
 generate_public_cert:
   cmd.run:
     - name: openssl rsa -pubout -in {{ pillar['dkim_private_key'] }} -out {{ pillar['dkim_public_key'] }}
+    - runas: Debian-exim
     - cwd: /etc/exim4/dkim/
     - creates: /etc/exim4/dkim/{{ pillar['dkim_public_key'] }}
 
