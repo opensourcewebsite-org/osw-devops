@@ -28,7 +28,8 @@ exim4_service:
   service.running:
     - name: exim4
     - enable: True
-
+    - watch:
+      - file: /etc/exim4/*
 
 create_dir_dkim:
   file.directory:
@@ -43,12 +44,14 @@ create_dir_dkim:
 generate_private_cert:
   cmd.run:
     - name: openssl genrsa -out {{ pillar['dkim_private_key'] }} 1024
+    - runas: Debian-exim
     - cwd: /etc/exim4/dkim/
     - creates: /etc/exim4/dkim/{{ pillar['dkim_private_key'] }}
 
 generate_public_cert:
   cmd.run:
     - name: openssl rsa -pubout -in {{ pillar['dkim_private_key'] }} -out {{ pillar['dkim_public_key'] }}
+    - runas: Debian-exim
     - cwd: /etc/exim4/dkim/
     - creates: /etc/exim4/dkim/{{ pillar['dkim_public_key'] }}
 
@@ -80,7 +83,3 @@ exim4_config_localmail:
     - mode: replace
     - content: 'domainlist local_domains = localhost : localhost.localdomain'
     - match: 'domainlist local_domains = MAIN_LOCAL_DOMAINS'
-
-restart_exim:
-  cmd.run:
-    - name: service exim4 restart
