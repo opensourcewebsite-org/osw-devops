@@ -26,7 +26,7 @@
 #    - minute: random
 #    - hour: 1
 #    - identifier: backup-mysql
-    
+
 backup-mysql:
   cron.absent:
     - name: /root/backup_mysql.sh
@@ -52,10 +52,10 @@ backup-site:
 #     - group
 #     - mode
 
-{{pillar['backup_dir']}}/mysql:
+{{ pillar['backup_dir'] }}/mysql:
   file.absent:
-    - name: {{pillar['backup_dir']}}/mysql
-    
+    - name: {{ pillar['backup_dir'] }}/mysql
+
 {{ pillar['backup_dir'] }}/sites:
   file.directory:
     - user: root

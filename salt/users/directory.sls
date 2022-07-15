@@ -11,7 +11,7 @@
     - user: opensourcewebsite.org
     - group: opensourcewebsite.org
     - makedirs: True
-    
+
 /www/opensourcewebsite.org/tmp/:
   file.directory:
     - mode: 770

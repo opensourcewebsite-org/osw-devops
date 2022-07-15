@@ -13,7 +13,7 @@ php:
       cli:
         - php7.4-cli
         - php7.4-common
-      modules:
+      xml:
         - php7.4-xml
       soap:
         - php7.4-soap
