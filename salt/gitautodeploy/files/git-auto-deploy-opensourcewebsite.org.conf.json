@@ -3,9 +3,10 @@
   "http-host": "0.0.0.0",
   "http-port": 8005,
   "pid-file": "/www/opensourcewebsite.org/tmp/.gitautodeploy.pid",
+  "ssl-cert": "/etc/git-auto-deploy/cert.pem",
 
   "repositories": [{
-    "url": "git@github.com:opensourcewebsite-org/opensourcewebsite-org.git",
+    "url": "https://github.com/opensourcewebsite-org/opensourcewebsite-org.git",
     "branch": "master",
     "remote": "origin",
     "path": "/www/opensourcewebsite.org/htdocs/",

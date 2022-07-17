@@ -12,6 +12,7 @@ base:
     - sysctl
     - users.log_acl
     - update_motd_d
+    - users.directory
     - users.selected_editor
   'opensourcewebsite.org or osw-devops-ci':
     - match: compound
