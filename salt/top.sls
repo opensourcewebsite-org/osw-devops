@@ -41,5 +41,5 @@ base:
     # - salt.minion
   'osw-devops-ci':
     # Overrides for Kitchen testing
-    - states/setup-certs
-    - states/adjust-auditd-conf-for-container
+    - states.setup-certs
+    - states.adjust-auditd-conf-for-container
