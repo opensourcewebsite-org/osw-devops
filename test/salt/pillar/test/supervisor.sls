@@ -7,6 +7,7 @@
 # /usr/bin/git-auto-deploy --quiet --config /etc/git-auto-deploy-opensourcewebsite.org.conf.json
 ---
 supervisor:
+  programs:
     opensourcewebsite-cron:
       command: sleep infinity
     opensourcewebsite-gitautodeploy-8005:
