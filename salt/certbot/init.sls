@@ -1,5 +1,5 @@
 include:
-  - renew
+  - .renew
 
 certbot-pkg:
   pkg.latest:
