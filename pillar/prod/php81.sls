@@ -13,9 +13,11 @@ php:
       cli:
         - php8.1-cli
         - php8.1-common
-      modules:
+      xml:
         - php8.1-xml
+      soap:
         - php8.1-soap
+      bcmath:
         - php8.1-bcmath
 
     fpm:
