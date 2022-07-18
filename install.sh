@@ -5,14 +5,16 @@ set -euo pipefail
 UBUNTU_VERSION=$(fgrep VERSION_ID /etc/os-release | cut -d\" -f2)
 UBUNTU_CODENAME=$(fgrep VERSION_CODENAME /etc/os-release | cut -d= -f2)
 
+apt-get update -y
+apt-get dist-upgrade -y
+apt-get install wget gnupg add-apt-key -y
+
 wget -qO- "https://repo.saltstack.com/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest/SALTSTACK-GPG-KEY.pub" | apt-key add -
 
 cat <<EOF > /etc/apt/sources.list.d/saltstack.list
 deb http://repo.saltstack.com/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest ${UBUNTU_CODENAME} main
 EOF
 
-apt-get update -y
-apt-get dist-upgrade -y
 apt-get install salt-master salt-minion -y
 
 cat <<EOF > /etc/salt/master
