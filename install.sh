@@ -92,12 +92,15 @@ sleep 60
 salt-key -a opensourcewebsite.org -y
 
 # Swap
-fallocate -l 4G /swapfile
-chmod 600 /swapfile
-mkswap /swapfile
-swapon /swapfile
-echo '/swapfile none swap sw 0 0' >> /etc/fstab
-sysctl vm.swappiness=0
+if ! [[ -f /swapfile ]]; then
+  fallocate -l 4G /swapfile
+  chmod 600 /swapfile
+  mkswap /swapfile
+  swapon /swapfile
+  echo '/swapfile none swap sw 0 0' >> /etc/fstab
+  echo 'vm.swappiness=0' > /etc/sysctl.d/10-swappiness.conf
+  sysctl --system
+fi
 
 # Certifications for nginx
 mkdir -p /etc/letsencrypt/live/opensourcewebsite.org
