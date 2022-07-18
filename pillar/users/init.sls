@@ -31,7 +31,3 @@ users:
   #   absent: true
   #   purge: true
   #   force: true
-  maxsh:
-    absent: true
-    purge: true
-    force: true
