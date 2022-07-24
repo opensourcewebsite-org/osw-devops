@@ -2,10 +2,10 @@
 
 set -euo pipefail
 
-UBUNTU_VERSION=$(fgrep VERSION_ID /etc/os-release | cut -d\" -f2)
-UBUNTU_CODENAME=$(fgrep VERSION_CODENAME /etc/os-release | cut -d= -f2)
+UBUNTU_VERSION=$(grep -F VERSION_ID /etc/os-release | cut -d\" -f2)
+UBUNTU_CODENAME=$(grep -F VERSION_CODENAME /etc/os-release | cut -d= -f2)
 
-apt-get update -y
+apt-get update
 apt-get dist-upgrade -y
 apt-get install wget gnupg add-apt-key -y
 
@@ -74,7 +74,6 @@ gitfs_saltenv_whitelist:
   base
 gitfs_update_interval:
   80
-
 EOF
 
 systemctl restart salt-master
@@ -83,9 +82,9 @@ cat <<EOF > /etc/salt/minion_id
 opensourcewebsite.org
 EOF
 
-cat <<EOF >> /etc/salt/minion
-master: 127.0.0.1
-EOF
+if ! grep -Fq 'master: 127.0.0.1' /etc/salt/minion; then
+  echo 'master: 127.0.0.1' >> /etc/salt/minion
+fi
 
 systemctl restart salt-minion
 
