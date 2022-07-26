@@ -12,7 +12,7 @@ apt-get install wget gnupg add-apt-key -y
 wget -qO- "https://repo.saltstack.com/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest/SALTSTACK-GPG-KEY.pub" | apt-key add -
 
 cat <<EOF > /etc/apt/sources.list.d/saltstack.list
-deb http://repo.saltstack.com/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest ${UBUNTU_CODENAME} main
+deb [arch=amd64] http://repo.saltstack.com/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest ${UBUNTU_CODENAME} main
 EOF
 
 apt-get install salt-master salt-minion -y
