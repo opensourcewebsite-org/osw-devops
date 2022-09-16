@@ -6,6 +6,8 @@
 base:
   '*':
     - users.init
+  '* and not osw-devops-ci':
+    - match: compound
     - salt
   'opensourcewebsite.org or osw-devops-ci':
     - match: compound
@@ -16,8 +18,9 @@ base:
     - prod.composer
     - prod.backup
     - prod.logrotate
-    - prod.salt
     - prod.exim
+  'opensourcewebsite.org':
+    - prod.salt
   'osw-devops-ci':
     # Overrides for Kitchen testing
     - test.nginx

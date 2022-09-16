@@ -42,13 +42,13 @@ gitfs_remotes:
     - root: salt
 
 pillarenv_from_saltenv: True
-git_pillar_root: pillar
 ext_pillar:
   - git:
     - https://github.com/opensourcewebsite-org/osw-devops.git
+      - root: pillar
 EOF
 
-salt-pip install GitPython pygit2
+salt-pip install GitPython
 
 systemctl restart salt-master
 

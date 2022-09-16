@@ -14,8 +14,8 @@ control 'osw packages' do
   pkgs += %w[debconf-utils exim4 openssh-server nmap tcpdump ioping ethtool hdparm lsof
              strace mc htop sysstat lshw iotop iftop sudo tmux chrony
              update-notifier-common unattended-upgrades update-manager-core
-             software-properties-common python3-software-properties python-apt
-             python-pycurl certbot python3-certbot-nginx python3-certbot-dns-cloudflare
+             software-properties-common python3-software-properties python3-apt
+             python3-pycurl certbot python3-certbot-nginx python3-certbot-dns-cloudflare
              python3-pygit2 landscape-common ccze python3.7 apache2-utils php-xdebug
              php7.4-soap php7.4-bcmath cron auditd audispd-plugins rsyslog acl nginx
              openssl php7.4-fpm php7.4-zip php7.4-mbstring php7.4-gd php-imagick

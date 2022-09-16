@@ -23,8 +23,8 @@ packages:
       - update-manager-core
       - software-properties-common
       - python3-software-properties
-      - python-apt
-      - python-pycurl
+      - python3-apt
+      - python3-pycurl
       - certbot
 
       {% if grains['oscodename'] == 'bionic' %}
@@ -43,6 +43,3 @@ packages:
       - php-xdebug
       - php7.4-soap
       - php7.4-bcmath
-
-#NAME:
-#  pkg.purged

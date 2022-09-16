@@ -6,52 +6,35 @@ salt:
   master_remove_config: false
   install_packages: true
   py_ver: 'py3'
-  version: 3004
+  version: 3005.1+ds-2
+  release: '3005.1'
   lookup:
     salt_master: 'salt-master'
     salt_minion: 'salt-minion'
-  release: '3004'
   master:
-    fileserver_backend:
-      - git
-      - roots
-    file_roots:
-      base:
-        - /srv/salt
-    pillar_roots:
-      base:
-        - /srv/pillar
+    fileserver_backend: git
+    gitfs_provider: gitpython
+    gitfs_update_interval: 63072000
     gitfs_remotes:
-      - https://github.com/saltstack-formulas/salt-formula.git:
-          - base: master
-      - https://github.com/saltstack-formulas/cron-formula.git:
-          - base: master
-      - https://github.com/saltstack-formulas/nginx-formula.git:
-          - base: master
-      - https://github.com/saltstack-formulas/php-formula.git:
-          - base: master
-      - https://github.com/saltstack-formulas/supervisor-formula.git:
-          - base: master
-      - https://github.com/saltstack-formulas/users-formula.git:
-          - base: master
-      - https://github.com/saltstack-formulas/logrotate-formula.git:
-          - base: master
+      - https://github.com/saltstack-formulas/salt-formula.git
+      - https://github.com/saltstack-formulas/cron-formula.git
+      - https://github.com/saltstack-formulas/nginx-formula.git
+      - https://github.com/saltstack-formulas/php-formula.git
+      - https://github.com/saltstack-formulas/supervisor-formula.git
+      - https://github.com/saltstack-formulas/users-formula.git
+      - https://github.com/saltstack-formulas/logrotate-formula.git
       - https://github.com/opensourcewebsite-org/osw-devops.git:
           - root: salt
-          - base: master
-    top_file_merging_strategy: merge
-    gitfs_provider: gitpython
     git_pillar_provider: gitpython
     gitfs_saltenv_whitelist:
       - base
-    git_pillar_env: base
+    pillarenv_from_saltenv: true
     git_pillar_root: pillar
-    gitfs_update_interval: 63072000
-    roots_update_interval: 63072000
     ext_pillar:
       - git:
-          - master https://github.com/opensourcewebsite-org/osw-devops.git:
-              - root: pillar
+          - master https://github.com/opensourcewebsite-org/osw-devops.git
+
+
   minion:
     master: 127.0.0.1
 #    schedule:
