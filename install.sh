@@ -7,80 +7,48 @@ UBUNTU_CODENAME=$(grep -F VERSION_CODENAME /etc/os-release | cut -d= -f2)
 
 apt-get update
 apt-get dist-upgrade -y
-apt-get install wget gnupg add-apt-key -y
+apt-get install wget gnupg -y
 
-wget -qO- "https://repo.saltstack.com/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest/SALTSTACK-GPG-KEY.pub" | apt-key add -
+wget -qO /usr/share/keyrings/salt-archive-keyring.gpg "https://repo.saltproject.io/salt/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest/salt-archive-keyring.gpg"
 
-cat <<EOF > /etc/apt/sources.list.d/saltstack.list
-deb [arch=amd64] http://repo.saltstack.com/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest ${UBUNTU_CODENAME} main
+if [[ -f /etc/apt/sources.list.d/saltstack.list ]]; then rm -f /etc/apt/sources.list.d/saltstack.list; fi
+
+cat <<EOF > /etc/apt/sources.list.d/salt.list
+deb [signed-by=/usr/share/keyrings/salt-archive-keyring.gpg arch=amd64] https://repo.saltproject.io/salt/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest ${UBUNTU_CODENAME} main
 EOF
 
+apt-get update
 apt-get install salt-master salt-minion -y
 
 cat <<EOF > /etc/salt/master
-file_roots:
-  base:
-    - /srv/salt
-    - /srv/formulas
-    - /srv/formulas/salt-formula
-    - /srv/formulas/cron-formula
-    - /srv/formulas/nginx-formula
-    - /srv/formulas/php-formula
-    - /srv/formulas/supervisor-formula
-    - /srv/formulas/users-formula
-    - /srv/formulas/logrotate-formula
-
-pillar_roots:
-  base:
-    - /srv/pillar
-
-top_file_merging_strategy: "merge"
-
-fileserver_backend:
-  - git
-  - roots
-
+fileserver_backend: git
 gitfs_provider: gitpython
+gitfs_saltenv_whitelist: base
+gitfs_update_interval: 80
 
 gitfs_remotes:
-    - https://github.com/saltstack-formulas/salt-formula.git:
-      - base: master
-    - https://github.com/saltstack-formulas/cron-formula.git:
-      - base: master
-    - https://github.com/saltstack-formulas/nginx-formula.git:
-      - base: master
-    - https://github.com/saltstack-formulas/php-formula.git:
-      - base: master
-    - https://github.com/saltstack-formulas/supervisor-formula.git:
-      - base: master
-    - https://github.com/saltstack-formulas/users-formula.git:
-      - base: master
-    - https://github.com/saltstack-formulas/logrotate-formula.git:
-      - base: master
+    - https://github.com/saltstack-formulas/salt-formula.git
+    - https://github.com/saltstack-formulas/cron-formula.git
+    - https://github.com/saltstack-formulas/nginx-formula.git
+    - https://github.com/saltstack-formulas/php-formula.git
+    - https://github.com/saltstack-formulas/supervisor-formula.git
+    - https://github.com/saltstack-formulas/users-formula.git
+    - https://github.com/saltstack-formulas/logrotate-formula.git
     - https://github.com/opensourcewebsite-org/osw-devops.git:
       - root: salt
-      - base: master
 
+pillarenv_from_saltenv: True
+git_pillar_root: pillar
 ext_pillar:
   - git:
-    - https://github.com/opensourcewebsite-org/osw-devops.git:
-      - root: pillar
-
-git_pillar_env: "base"
-
-git_pillar_root: "pillar"
-
-gitfs_saltenv_whitelist:
-  base
-gitfs_update_interval:
-  80
+    - https://github.com/opensourcewebsite-org/osw-devops.git
 EOF
+
+salt-pip install -y GitPython
 
 systemctl restart salt-master
 
-cat <<EOF > /etc/salt/minion_id
-opensourcewebsite.org
-EOF
+echo 'opensourcewebsite.org' > /etc/salt/minion_id
 
 if ! grep -Fq 'master: 127.0.0.1' /etc/salt/minion; then
   echo 'master: 127.0.0.1' >> /etc/salt/minion
