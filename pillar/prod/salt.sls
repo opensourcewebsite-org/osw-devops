@@ -42,7 +42,8 @@ salt:
     top_file_merging_strategy: merge
     gitfs_provider: gitpython
     git_pillar_provider: gitpython
-    gitfs_saltenv_whitelist: base
+    gitfs_saltenv_whitelist:
+      - base
     git_pillar_env: base
     git_pillar_root: pillar
     gitfs_update_interval: 63072000
