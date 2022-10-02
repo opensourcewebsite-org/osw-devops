@@ -8,6 +8,7 @@ Please read through our [Contributing Guidelines](CONTRIBUTING.md).
 - Run `sudo sh install.sh` to install initial environment.
 - Put user password's hash in `/srv/users-passwords.txt`.
 - Run `sudo salt '*' state.apply --state-verbose=false`.
+- Replace `<SetYourAPIKey>` to your own [SendGrid API key](https://app.sendgrid.com/settings/api_keys) in `/etc/exim4/passwd.client` and run `systemctl restart exim4`
 - Check email sending, run `bash mail-testert.sh user@domain.tld`.
 
 ### Add/Remove admin users

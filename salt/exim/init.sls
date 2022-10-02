@@ -83,3 +83,36 @@ exim4_config_localmail:
     - mode: replace
     - content: 'domainlist local_domains = localhost : localhost.localdomain'
     - match: 'domainlist local_domains = MAIN_LOCAL_DOMAINS'
+
+exim4_config_localmacros:
+  file.managed:
+    - name: /etc/exim4/exim4.conf.localmacros
+    - contents: 'MAIN_TLS_ENABLE = 1'
+
+exim4_conf:
+  file.managed:
+    - name: /etc/exim4/update-exim4.conf.conf
+    - contents: |
+           dc_eximconfig_configtype='smarthost'
+           dc_other_hostnames=''
+           dc_local_interfaces='127.0.0.1'
+           dc_readhost='opensourcewebsite.org'
+           dc_relay_domains=''
+           dc_minimaldns='false'
+           dc_relay_nets=''
+           dc_smarthost='smtp.sendgrid.net::587'
+           CFILEMODE='644'
+           dc_use_split_config='false'
+           dc_hide_mailname='true'
+           dc_mailname_in_oh='true'
+           dc_localdelivery='mail_spool'
+
+exim4_passwd_client:
+  file.managed:
+    - name: /etc/exim4/passwd.client
+    - user: root
+    - group: Debian-exim
+    - mode: 640
+    - create: True
+    - replace: False
+    - contents: '*:apikey:<SetYourAPIKey>'
