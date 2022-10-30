@@ -26,7 +26,11 @@
 audispd-plugins:
   pkg.installed
 
+{% if grains['oscodename'] in ['bionic', 'focal'] %}
 /etc/audisp/plugins.d/syslog.conf:
+{% else %}
+/etc/audit/plugins.d/syslog.conf:
+{% endif %}
   file.replace:
     - pattern: active = no
     - repl: active = yes

@@ -1,18 +1,7 @@
-supervisor-pip:
-  pkg.latest:
-    - pkgs:
-    {% if grains['oscodename'] == 'bionic' %}
-      - python-pip
-      - python3-pip
-    {% elif grains['oscodename'] == 'focal' %}
-      - python3-pip
-    {% endif %}
-
 superlance:
   pip.installed:
-    - name: superlance
     - require:
-      - pkg: supervisor-pip
+      - pkg: python-pip
 
 include:
   - supervisor

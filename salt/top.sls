@@ -14,9 +14,13 @@ base:
     - update_motd_d
     - users.directory
     - users.selected_editor
+  '* and not osw-devops-ci':
+    - match: compound
+    - salt.minion
   'opensourcewebsite.org or osw-devops-ci':
     - match: compound
     - nginx
+    - pip
     - php.fpm
     - php.zip
     - php.mbstring
@@ -35,10 +39,10 @@ base:
     - backup
     - logrotate
     - logrotate.jobs
-    # - salt.master
-    - salt.formulas
     - exim
-    # - salt.minion
+  'opensourcewebsite.org':
+    - salt.master
+    - salt.formulas
   'osw-devops-ci':
     # Overrides for Kitchen testing
     - states.setup-certs

@@ -44,20 +44,6 @@ provisioner:
       - https://github.com/saltstack-formulas/logrotate-formula.git
 
 platforms:
-  ## SALT `tiamat`
-  - name: ubuntu-2204-tiamat-py3
-    driver:
-      image: saltimages/salt-tiamat-py3:ubuntu-22.04
-      run_command: /lib/systemd/systemd
-  - name: ubuntu-2004-tiamat-py3
-    driver:
-      image: saltimages/salt-tiamat-py3:ubuntu-20.04
-      run_command: /lib/systemd/systemd
-  - name: ubuntu-1804-tiamat-py3
-    driver:
-      image: saltimages/salt-tiamat-py3:ubuntu-18.04
-      run_command: /lib/systemd/systemd
-
   ## SALT `master`
   - name: ubuntu-2204-master-py3
     driver:
@@ -70,30 +56,6 @@ platforms:
   - name: ubuntu-1804-master-py3
     driver:
       image: saltimages/salt-master-py3:ubuntu-18.04
-      run_command: /lib/systemd/systemd
-
-  ## SALT `3004.1`
-  - name: ubuntu-2204-3004-1-py3
-    driver:
-      image: saltimages/salt-3004.1-py3:ubuntu-22.04
-      run_command: /lib/systemd/systemd
-  - name: ubuntu-2004-3004-1-py3
-    driver:
-      image: saltimages/salt-3004.1-py3:ubuntu-20.04
-      run_command: /lib/systemd/systemd
-  - name: ubuntu-1804-3004-1-py3
-    driver:
-      image: saltimages/salt-3004.1-py3:ubuntu-18.04
-      run_command: /lib/systemd/systemd
-
-  ## SALT `3003.4`
-  - name: ubuntu-2004-3003-4-py3
-    driver:
-      image: saltimages/salt-3003.4-py3:ubuntu-20.04
-      run_command: /lib/systemd/systemd
-  - name: ubuntu-1804-3003-4-py3
-    driver:
-      image: saltimages/salt-3003.4-py3:ubuntu-18.04
       run_command: /lib/systemd/systemd
 
 verifier:

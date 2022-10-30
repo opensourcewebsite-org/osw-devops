@@ -1,14 +1,11 @@
 # vim: ft=yaml
 ---
 nginx:
-  # pkg:
-  # - installed
-  # service:
-  # - running
-  # - reload: True
-  # - require:
-  # - pkg: nginx
-  install_from_ppa: true
+  install_from_repo: true
+
+  install_from_phusionpassenger: false
+
+  install_from_ppa: false
   ppa_version: 'stable'
 
   lookup:
