@@ -12,7 +12,8 @@ salt:
     salt_master: 'salt-master'
     salt_minion: 'salt-minion'
   master:
-    fileserver_backend: git
+    fileserver_backend:
+      - git
     gitfs_provider: gitpython
     gitfs_update_interval: 63072000
     gitfs_remotes:
