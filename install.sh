@@ -44,7 +44,7 @@ gitfs_remotes:
 pillarenv_from_saltenv: True
 ext_pillar:
   - git:
-    - https://github.com/opensourcewebsite-org/osw-devops.git
+    - https://github.com/opensourcewebsite-org/osw-devops.git:
       - root: pillar
 EOF
 
