@@ -5,6 +5,7 @@
     - group: root
     - mode: 644
     - create: False
+    - replace: False
 
 /etc/update-motd.d/51-cloudguest:
   file.managed:
@@ -13,6 +14,7 @@
     - group: root
     - mode: 644
     - create: False
+    - replace: False
 
 create_htpasswd:
   file.line:
