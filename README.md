@@ -1,6 +1,7 @@
 <h1 align="center">OpenSourceWebsite DevOps</h1>
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Kitchen (Linux)](https://github.com/opensourcewebsite-org/osw-devops/actions/workflows/kitchen.yml/badge.svg)](https://github.com/opensourcewebsite-org/osw-devops/actions/workflows/kitchen.yml)
 
 [![License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![SaltStack Version](https://img.shields.io/badge/SaltStack-3005.1-blue.svg?style=flat-square)](https://saltproject.io)
