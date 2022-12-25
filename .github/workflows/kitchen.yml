@@ -8,9 +8,11 @@ jobs:
   pre-commit:
     runs-on: 'ubuntu-20.04'
     steps:
-      - uses: 'actions/checkout@v2'
-      - uses: 'actions/setup-python@v2'
-      - uses: 'pre-commit/action@v2.0.3'
+      - uses: 'actions/checkout@v3'
+      - uses: 'actions/setup-python@v4'
+        with:
+          python-version: '3.x'
+      - uses: 'pre-commit/action@v3.0.0'
         with:
           extra_args: --verbose --all-files
   kitchen:
@@ -25,9 +27,9 @@ jobs:
           - default-ubuntu-1804-master-py3
     steps:
       - name: 'Check out code'
-        uses: 'actions/checkout@v2'
+        uses: 'actions/checkout@v3'
       - name: 'Set up Bundler cache'
-        uses: 'actions/cache@v1'
+        uses: 'actions/cache@v3'
         with:
           path: 'vendor/bundle'
           key: "${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}"
