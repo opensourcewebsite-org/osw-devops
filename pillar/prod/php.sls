@@ -4,34 +4,34 @@ php:
   use_external_repo: true
   external_repo_name: 'ondrej/php'
 
-  version: '7.4'
+  version: '8.2'
   lookup:
     pkgs:
       curl:
-        - php7.4-curl
+        - php8.2-curl
         - curl
       cli:
-        - php7.4-cli
-        - php7.4-common
+        - php8.2-cli
+        - php8.2-common
       xml:
-        - php7.4-xml
+        - php8.2-xml
       soap:
-        - php7.4-soap
+        - php8.2-soap
       bcmath:
-        - php7.4-bcmath
+        - php8.2-bcmath
 
     fpm:
-      conf: /etc/php/7.4/fpm/php-fpm.conf
-      ini: /etc/php/7.4/fpm/php.ini
-      pools: /etc/php/7.4/fpm/pool.d
-      service: php7.4-fpm.service
+      conf: /etc/php/8.2/fpm/php-fpm.conf
+      ini: /etc/php/8.2/fpm/php.ini
+      pools: /etc/php/8.2/fpm/pool.d
+      service: php8.2-fpm.service
 
       defaults:
         global:
-          pid: /run/php/php7.4-fpm.pid
+          pid: /run/php/php8.2-fpm.pid
 
     cli:
-      ini: /etc/php/7.4/cli/php.ini
+      ini: /etc/php/8.2/cli/php.ini
 
   fpm:
     service:
@@ -47,14 +47,14 @@ php:
           PHP:
             engine: 'On'
             expose_php: 'Off'
-            extension_dir: '/usr/lib/php/20190902/'
+            extension_dir: '/usr/lib/php/20210902/'
       conf:
         opts:
           recurse: true
         settings:
           global:
-            pid: /run/php/php7.4-fpm.pid
-            error_log: /var/log/php7.4-fpm.log
+            pid: /run/php/php8.2-fpm.pid
+            error_log: /var/log/php8.2-fpm.log
 
     # settings for fpm-pools
     pools:
@@ -67,7 +67,7 @@ php:
           opensourcewebsite.org:
             user: opensourcewebsite.org
             group: opensourcewebsite.org
-            listen: /run/php/php7.4-opensourcewebsite.org.sock
+            listen: /run/php/php8.2-opensourcewebsite.org.sock
             listen.owner: opensourcewebsite.org
             listen.group: opensourcewebsite.org
             listen.mode: '0660'
@@ -89,7 +89,7 @@ php:
           www:
             user: www-data
             group: www-data
-            listen: /run/php/php7.4-fpm.sock
+            listen: /run/php/php8.2-fpm.sock
             listen.owner: www-data
             listen.group: www-data
             listen.mode: '0660'
@@ -98,10 +98,9 @@ php:
             pm.start_servers: 2
             pm.min_spare_servers: 2
             pm.max_spare_servers: 5
-            slowlog: /var/log/php7.4-fpm.slow.log
+            slowlog: /var/log/php8.2-fpm.slow.log
             request_slowlog_timeout: 5s
             'php_admin_value[memory_limit]': 128M
-
 
   # php-cli settings
   cli:

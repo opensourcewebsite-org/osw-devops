@@ -17,9 +17,9 @@ control 'osw packages' do
              software-properties-common python3-software-properties python3-apt
              python3-pycurl certbot python3-certbot-nginx python3-certbot-dns-cloudflare
              python3-pygit2 landscape-common ccze python3.7 apache2-utils php-xdebug
-             php7.4-soap php7.4-bcmath cron auditd audispd-plugins rsyslog acl nginx
-             openssl php7.4-fpm php7.4-zip php7.4-mbstring php7.4-gd php-imagick
-             php7.4-intl php7.4-curl php7.4-mysql php7.4-cli php7.4-xml supervisor
+             php8.2-soap php8.2-bcmath cron auditd audispd-plugins rsyslog acl nginx
+             openssl php8.2-fpm php8.2-zip php8.2-mbstring php8.2-gd php-imagick
+             php8.2-intl php8.2-curl php8.2-mysql php8.2-cli php8.2-xml supervisor
              python3-pip composer logrotate]
 
   pkgs.each do |p|

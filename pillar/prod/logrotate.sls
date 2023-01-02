@@ -95,25 +95,15 @@ logrotate:
         - postrotate
         - invoke-rc.d nginx rotate >/dev/null 2>&1
         - endscript
-    php7.4-fpm:
+    php8.2-fpm:
       path:
-        - /var/log/php7.4-fpm.log
+        - /var/log/php8.2-fpm.log
       config:
         - missingok
         - notifempty
         - sharedscripts
         - postrotate
-        - /usr/lib/php/php7.4-fpm-reopenlogs
-        - endscript
-    php8.1-fpm:
-      path:
-        - /var/log/php8.1-fpm.log
-      config:
-        - missingok
-        - notifempty
-        - sharedscripts
-        - postrotate
-        - /usr/lib/php/php8.1-fpm-reopenlogs
+        - /usr/lib/php/php8.2-fpm-reopenlogs
         - endscript
     salt-common:
       path:

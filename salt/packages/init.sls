@@ -41,5 +41,5 @@ packages:
       - python3.7
       - apache2-utils
       - php-xdebug
-      - php7.4-soap
-      - php7.4-bcmath
+      - php8.2-soap
+      - php8.2-bcmath

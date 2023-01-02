@@ -3,7 +3,7 @@
 control 'osw services (enabled)' do
   title 'The services should be installed, enabled and running'
 
-  services = %w[cron auditd rsyslog nginx php7.4-fpm supervisor exim4]
+  services = %w[cron auditd rsyslog nginx php8.2-fpm supervisor exim4]
 
   services.each do |s|
     describe service(s) do
