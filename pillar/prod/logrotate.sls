@@ -115,6 +115,16 @@ logrotate:
         - postrotate
         - /usr/lib/php/php8.1-fpm-reopenlogs
         - endscript
+    php8.2-fpm:
+      path:
+        - /var/log/php8.2-fpm.log
+      config:
+        - missingok
+        - notifempty
+        - sharedscripts
+        - postrotate
+        - /usr/lib/php/php8.2-fpm-reopenlogs
+        - endscript
     salt-common:
       path:
         - /var/log/salt/master
