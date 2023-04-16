@@ -6,7 +6,7 @@
     - mode: 700
     - template: jinja
     - context:
-      backup_dir: {{ pillar['backup_dir'] }}
+        backup_dir: {{ pillar['backup_dir'] }}
 
 /root/backup_site.sh:
   file.managed:
@@ -16,8 +16,8 @@
     - mode: 700
     - template: jinja
     - context:
-      backup_dir: {{ pillar['backup_dir'] }}
-      backup_site_list: {{ pillar['backup_sites'] | join(' ') }}
+        backup_dir: {{ pillar['backup_dir'] }}
+        backup_site_list: {{ pillar['backup_sites'] | join(' ') }}
 
 #backup-mysql:
 #  cron.present:
