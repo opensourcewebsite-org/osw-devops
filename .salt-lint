@@ -7,7 +7,7 @@ exclude_paths:
 rules:
   206:  # Jinja variables should have spaces before and after: '{{ var_name }}'
     ignore: |
-      salt/exim/init.sls
+      salt/exim.sls
 skip_list:
   # Using `salt-lint` for linting other files as well, such as Jinja macros/templates
   - 205  # Use ".sls" as a Salt State file extension
