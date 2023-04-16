@@ -4,17 +4,20 @@ set -euo pipefail
 
 UBUNTU_VERSION=$(grep -F VERSION_ID /etc/os-release | cut -d\" -f2)
 UBUNTU_CODENAME=$(grep -F VERSION_CODENAME /etc/os-release | cut -d= -f2)
+SALT_RELEASE='3005'
 
 apt-get update
-apt-get dist-upgrade -y
+apt-get full-upgrade -y
 apt-get install wget -y
 
-wget -qO /usr/share/keyrings/salt-archive-keyring.gpg "https://repo.saltproject.io/salt/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest/salt-archive-keyring.gpg"
+if ! [[ -d /etc/apt/keyrings ]]; then
+  mkdir /etc/apt/keyrings
+fi
 
-if [[ -f /etc/apt/sources.list.d/saltstack.list ]]; then rm -f /etc/apt/sources.list.d/saltstack.list; fi
+wget -qO /etc/apt/keyrings/salt-archive-keyring.gpg "https://repo.saltproject.io/salt/py3/ubuntu/${UBUNTU_VERSION}/amd64/${SALT_RELEASE}/salt-archive-keyring.gpg"
 
 cat <<EOF > /etc/apt/sources.list.d/salt.list
-deb [signed-by=/usr/share/keyrings/salt-archive-keyring.gpg arch=amd64] https://repo.saltproject.io/salt/py3/ubuntu/${UBUNTU_VERSION}/amd64/latest ${UBUNTU_CODENAME} main
+deb [signed-by=/etc/apt/keyrings/salt-archive-keyring.gpg arch=amd64] https://repo.saltproject.io/salt/py3/ubuntu/${UBUNTU_VERSION}/amd64/${SALT_RELEASE} ${UBUNTU_CODENAME} main
 EOF
 
 apt-get update
