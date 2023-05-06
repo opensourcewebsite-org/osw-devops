@@ -6,8 +6,8 @@ salt:
   master_remove_config: false
   install_packages: true
   py_ver: 'py3'
-  version: 3005.1+ds-4
-  release: '3005.1'
+  version: 3006.1
+  release: '3006.1'
   lookup:
     salt_master: 'salt-master'
     salt_minion: 'salt-minion'
