@@ -4,7 +4,7 @@ set -euo pipefail
 
 UBUNTU_VERSION=$(grep -F VERSION_ID /etc/os-release | cut -d\" -f2)
 UBUNTU_CODENAME=$(grep -F VERSION_CODENAME /etc/os-release | cut -d= -f2)
-SALT_RELEASE='3005'
+SALT_RELEASE='3006'
 
 apt-get update
 apt-get full-upgrade -y
@@ -14,10 +14,10 @@ if ! [[ -d /etc/apt/keyrings ]]; then
   mkdir /etc/apt/keyrings
 fi
 
-wget -qO /etc/apt/keyrings/salt-archive-keyring.gpg "https://repo.saltproject.io/salt/py3/ubuntu/${UBUNTU_VERSION}/amd64/${SALT_RELEASE}/salt-archive-keyring.gpg"
+wget -qO /etc/apt/keyrings/salt-archive-keyring-2023.gpg "https://repo.saltproject.io/salt/py3/ubuntu/${UBUNTU_VERSION}/amd64/SALT-PROJECT-GPG-PUBKEY-2023.gpg"
 
 cat <<EOF > /etc/apt/sources.list.d/salt.list
-deb [signed-by=/etc/apt/keyrings/salt-archive-keyring.gpg arch=amd64] https://repo.saltproject.io/salt/py3/ubuntu/${UBUNTU_VERSION}/amd64/${SALT_RELEASE} ${UBUNTU_CODENAME} main
+deb [signed-by=/etc/apt/keyrings/salt-archive-keyring-2023.gpg arch=amd64] https://repo.saltproject.io/salt/py3/ubuntu/${UBUNTU_VERSION}/amd64/${SALT_RELEASE} ${UBUNTU_CODENAME} main
 EOF
 
 apt-get update
@@ -42,13 +42,13 @@ gitfs_remotes:
   - https://github.com/saltstack-formulas/users-formula.git
   - https://github.com/saltstack-formulas/logrotate-formula.git
   - https://github.com/opensourcewebsite-org/osw-devops.git:
-    - root: salt
+      - root: salt
 
 pillarenv_from_saltenv: True
 ext_pillar:
   - git:
     - https://github.com/opensourcewebsite-org/osw-devops.git:
-      - root: pillar
+        - root: pillar
 EOF
 
 salt-pip install GitPython
@@ -65,7 +65,7 @@ systemctl restart salt-minion
 
 sleep 60
 
-salt-key -a opensourcewebsite.org -y
+salt-key -ay opensourcewebsite.org
 
 # Swap
 if ! [[ -f /swapfile ]]; then
