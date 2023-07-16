@@ -2,17 +2,18 @@ debconf-utils:
   pkg.installed:
     - order: 1
 
-exim_packages:
+exim4:
   pkg.installed:
-    - pkgs:
-      - exim4
     - require:
       - debconf: exim4_config
     - order: 2
+  service.running:
+    - enable: True
+    - watch:
+      - file: /etc/exim4/*
 
-exim4_setup:
+exim4_config:
   debconf.set:
-    - name: exim4_config
     - data:
         'exim4/mailname': {'type': 'string', 'value': {{ grains['localhost'] }} }
         'exim4/dc_localdelivery': {'type': 'select', 'value': 'mbox format in /var/mail/'}
@@ -24,14 +25,7 @@ exim4_setup:
     - require:
       - pkg: debconf-utils
 
-exim4_service:
-  service.running:
-    - name: exim4
-    - enable: True
-    - watch:
-      - file: /etc/exim4/*
-
-create_dir_dkim:
+/etc/exim4/dkim:
   file.directory:
     - name: /etc/exim4/dkim
     - makedirs: True
@@ -55,16 +49,6 @@ generate_public_cert:
     - cwd: /etc/exim4/dkim/
     - creates: /etc/exim4/dkim/{{ pillar['dkim_public_key'] }}
 
-chown_dkim:
-  file.directory:
-    - name: /etc/exim4/dkim
-    - makedirs: True
-    - user: Debian-exim
-    - group: Debian-exim
-    - recurse:
-       - user
-       - group
-
 exim4_dkim:
   file.blockreplace:
     - name: /etc/exim4/exim4.conf.template
@@ -84,14 +68,12 @@ exim4_config_localmail:
     - content: 'domainlist local_domains = localhost : localhost.localdomain'
     - match: 'domainlist local_domains = MAIN_LOCAL_DOMAINS'
 
-exim4_config_localmacros:
+/etc/exim4/exim4.conf.localmacros:
   file.managed:
-    - name: /etc/exim4/exim4.conf.localmacros
     - contents: 'MAIN_TLS_ENABLE = 1'
 
-exim4_conf:
+/etc/exim4/update-exim4.conf.conf:
   file.managed:
-    - name: /etc/exim4/update-exim4.conf.conf
     - contents: |
            dc_eximconfig_configtype='smarthost'
            dc_other_hostnames=''
@@ -107,9 +89,8 @@ exim4_conf:
            dc_mailname_in_oh='true'
            dc_localdelivery='mail_spool'
 
-exim4_passwd_client:
+/etc/exim4/passwd.client:
   file.managed:
-    - name: /etc/exim4/passwd.client
     - user: root
     - group: Debian-exim
     - mode: 640
