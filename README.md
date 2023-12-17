@@ -4,7 +4,7 @@
 [![Kitchen (Linux)](https://github.com/opensourcewebsite-org/osw-devops/actions/workflows/kitchen.yml/badge.svg)](https://github.com/opensourcewebsite-org/osw-devops/actions/workflows/kitchen.yml)
 
 [![License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![SaltStack Version](https://img.shields.io/badge/SaltStack-3006.1-blue.svg?style=flat-square)](https://saltproject.io)
+[![SaltStack Version](https://img.shields.io/badge/SaltStack-3006.5-blue.svg?style=flat-square)](https://saltproject.io)
 
 Server Architecture for OpenSourceWebsite, using [SaltStack](https://saltproject.io).
 
